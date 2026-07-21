@@ -1,0 +1,33 @@
+{
+  "notebooks": 44,
+  "wiki": 5,
+  "indexed": "2026-04-27",
+  "clusters": [
+    { "name": "AI/ML", "count": 17, "fill": "#5b63f0" },
+    { "name": "Business/Market", "count": 10, "fill": "#38bdf8" },
+    { "name": "Other", "count": 12, "fill": "#9aa1b5" },
+    { "name": "Finance", "count": 3, "fill": "#34d399" },
+    { "name": "Stats/Math", "count": 2, "fill": "#e879b9" }
+  ],
+  "wikiPages": [
+    { "kind": "concept", "name": "Agentic AI" },
+    { "kind": "concept", "name": "Hypertrophy Training" },
+    { "kind": "concept", "name": "KARMA-OS Architecture" },
+    { "kind": "concept", "name": "Privacy Tiers" },
+    { "kind": "entity", "name": "NanoBot" }
+  ],
+  "notebookSample": [
+    { "name": "LLM Fine-Tuning: Quantization, LoRA & Practical Implementation", "cluster": "AI/ML", "files": 6, "date": "2026-04-12" },
+    { "name": "Indian Two-Wheeler Market: 2025 Strategic Analysis", "cluster": "Business/Market", "files": 4, "date": "2026-04-12" },
+    { "name": "NLP - Term 3", "cluster": "AI/ML", "files": 9, "date": "2026-04-12" },
+    { "name": "Foundations & Applications of Modern Machine Learning", "cluster": "AI/ML", "files": 5, "date": "2026-04-12" },
+    { "name": "The 2026 AI Realignment: Alphabet Overtakes Apple", "cluster": "AI/ML", "files": 3, "date": "2026-04-12" },
+    { "name": "Mastering Quantitative Finance: Foundations, Careers", "cluster": "Finance", "files": 7, "date": "2026-04-12" },
+    { "name": "Tuhin Bhattacharya Equity Dividend Report", "cluster": "Finance", "files": 2, "date": "2026-04-12" },
+    { "name": "Modern Football Analytics: Technology, Tactics", "cluster": "Other", "files": 4, "date": "2026-04-12" },
+    { "name": "Memento: LLM Agents Without Fine-tuning", "cluster": "AI/ML", "files": 3, "date": "2025-10-23" },
+    { "name": "Confidence Intervals: Theory, Construction & Application", "cluster": "Stats/Math", "files": 3, "date": "2025-12-10" },
+    { "name": "3M in 2024: Tiding Over Colossal Challenges", "cluster": "Business/Market", "files": 5, "date": "2026-04-12" },
+    { "name": "Pop Mart's Mystery Box Mania: Consumer Manipulation", "cluster": "Business/Market", "files": 4, "date": "2026-04-12" }
+  ]
+}

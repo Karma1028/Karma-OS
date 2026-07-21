@@ -1,0 +1,34 @@
+{
+  "identity": "Tuhin Bhattacharya",
+  "sub": "Personal AI OS identity · memory/palace/identity.md",
+  "layers": [
+    {
+      "tag": "L1",
+      "tagColor": "var(--accentT)",
+      "name": "identity.md",
+      "state": "live",
+      "desc": "Static identity + preferences file, read every session boot."
+    },
+    {
+      "tag": "L2",
+      "tagColor": "var(--info)",
+      "name": "MEMORY.md",
+      "state": "23 lines · 11 entries",
+      "desc": "Index of semantic memory files — user, feedback, project, reference types."
+    },
+    {
+      "tag": "L3",
+      "tagColor": "var(--warn)",
+      "name": "history.jsonl",
+      "state": "1 entry",
+      "desc": "Append-only event log. Only a manual verification entry so far — task-completion writes aren't flowing yet."
+    },
+    {
+      "tag": "L4",
+      "tagColor": "var(--good)",
+      "name": "ChromaDB palace",
+      "state": "online",
+      "desc": "Vector store at memory/palace/chroma.sqlite3 + HNSW index — embedding-backed recall layer."
+    }
+  ]
+}

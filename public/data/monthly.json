@@ -1,0 +1,12 @@
+[
+  { "month": "2025-10", "label": "Oct", "workouts": 1, "vol": 6045, "music_min": 0, "knowledge": 1, "memory": 0, "intel": 0, "events": 2, "mood": 10 },
+  { "month": "2025-11", "label": "Nov", "workouts": 0, "vol": 0, "music_min": 0, "knowledge": 2, "memory": 0, "intel": 0, "events": 2, "mood": 4 },
+  { "month": "2025-12", "label": "Dec", "workouts": 0, "vol": 0, "music_min": 2, "knowledge": 8, "memory": 0, "intel": 0, "events": 8, "mood": 16 },
+  { "month": "2026-01", "label": "Jan", "workouts": 0, "vol": 0, "music_min": 472, "knowledge": 1, "memory": 0, "intel": 0, "events": 1, "mood": 14 },
+  { "month": "2026-02", "label": "Feb", "workouts": 0, "vol": 0, "music_min": 1012, "knowledge": 0, "memory": 0, "intel": 0, "events": 0, "mood": 25 },
+  { "month": "2026-03", "label": "Mar", "workouts": 0, "vol": 0, "music_min": 1771, "knowledge": 0, "memory": 0, "intel": 0, "events": 0, "mood": 44 },
+  { "month": "2026-04", "label": "Apr", "workouts": 5, "vol": 14855, "music_min": 515, "knowledge": 34, "memory": 1, "intel": 0, "events": 40, "mood": 100 },
+  { "month": "2026-05", "label": "May", "workouts": 19, "vol": 98777, "music_min": 0, "knowledge": 0, "memory": 1, "intel": 1, "events": 21, "mood": 100 },
+  { "month": "2026-06", "label": "Jun", "workouts": 0, "vol": 0, "music_min": 0, "knowledge": 0, "memory": 0, "intel": 0, "events": 0, "mood": 0 },
+  { "month": "2026-07", "label": "Jul", "workouts": 0, "vol": 0, "music_min": 0, "knowledge": 0, "memory": 1, "intel": 1, "events": 2, "mood": 6 }
+]

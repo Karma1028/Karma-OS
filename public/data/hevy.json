@@ -1,0 +1,243 @@
+{
+  "hevy_summary": {
+    "total_workouts": 25,
+    "first_date": "2025-10-18",
+    "last_date": "2026-05-23",
+    "total_volume_kg": 119677,
+    "total_sets": 536,
+    "avg_duration_min": 62,
+    "weekly_counts": [5, 5, 6, 4, 0, 0, 0, 0, 0, 0, 0, 0],
+    "recent": [
+      {
+        "title": "Legs",
+        "date": "2026-05-23",
+        "mins": 64,
+        "vol": 7690,
+        "sets": 21,
+        "exercises": [
+          "Squat (Machine)",
+          "Leg Extension (Machine)",
+          "Romanian Deadlift (Dumbbell)",
+          "Lying Leg Curl (Machine)",
+          "Standing Calf Raise (Machine)",
+          "Calf Press (Machine)"
+        ]
+      },
+      {
+        "title": "Baaaack",
+        "date": "2026-05-22",
+        "mins": 62,
+        "vol": 9075,
+        "sets": 24,
+        "exercises": [
+          "Lat Pulldown (Cable)",
+          "Iso-Lateral Row (Machine)",
+          "Seated Cable Row - V Grip (Cable)",
+          "Preacher Curl (Machine)",
+          "Hammer Curl (Cable)"
+        ]
+      },
+      {
+        "title": "Arms",
+        "date": "2026-05-21",
+        "mins": 62,
+        "vol": 7500,
+        "sets": 35,
+        "exercises": [
+          "Triceps Rope Pushdown",
+          "Overhead Triceps Extension (Cable)",
+          "Triceps Pushdown",
+          "Seated Incline Curl (Dumbbell)",
+          "Preacher Curl (Machine)",
+          "Bicep Curl (Cable)",
+          "Seated Wrist Extension (Barbell)"
+        ]
+      },
+      {
+        "title": "Shoulder baby",
+        "date": "2026-05-20",
+        "mins": 51,
+        "vol": 2953,
+        "sets": 20,
+        "exercises": [
+          "Overhead Press (Smith Machine)",
+          "Lateral Raise (Dumbbell)",
+          "Rear Delt Reverse Fly (Machine)",
+          "Face Pull",
+          "Shrug (Dumbbell)"
+        ]
+      },
+      {
+        "title": "Baaaack",
+        "date": "2026-05-19",
+        "mins": 69,
+        "vol": 8313,
+        "sets": 27,
+        "exercises": [
+          "Pull Up",
+          "Lat Pulldown (Cable)",
+          "Iso-Lateral Row (Machine)",
+          "T Bar Row",
+          "Seated Cable Row - V Grip (Cable)",
+          "Preacher Curl (Machine)",
+          "Hammer Curl (Cable)"
+        ]
+      },
+      {
+        "title": "Chestom",
+        "date": "2026-05-18",
+        "mins": 62,
+        "vol": 5990,
+        "sets": 28,
+        "exercises": [
+          "Incline Chest Fly (Dumbbell)",
+          "Bench Press (Smith Machine)",
+          "Butterfly (Pec Deck)",
+          "Chest Press (Machine)",
+          "Cable Fly Crossovers",
+          "Triceps Pushdown"
+        ]
+      },
+      {
+        "title": "Arms",
+        "date": "2026-05-17",
+        "mins": 76,
+        "vol": 6340,
+        "sets": 33,
+        "exercises": [
+          "Triceps Rope Pushdown",
+          "Overhead Triceps Extension (Cable)",
+          "Triceps Pushdown",
+          "Seated Incline Curl (Dumbbell)",
+          "Preacher Curl (Machine)",
+          "Bicep Curl (Cable)",
+          "Seated Wrist Extension (Barbell)"
+        ]
+      }
+    ],
+    "prs": [
+      { "name": "Squat (Machine)", "weight": 110, "reps": 10, "date": "2026-05-23" },
+      { "name": "Standing Calf Raise (Machine)", "weight": 70, "reps": 10, "date": "2026-05-23" },
+      { "name": "Leg Press (Machine)", "weight": 70, "reps": 10, "date": "2026-05-02" },
+      { "name": "Iso-Lateral Row (Machine)", "weight": 65, "reps": 10, "date": "2026-05-22" },
+      { "name": "Seated Cable Row - V Grip (Cable)", "weight": 65, "reps": 12, "date": "2026-05-22" },
+      { "name": "Chin Up (Assisted)", "weight": 60, "reps": 12, "date": "2025-10-18" },
+      { "name": "Lat Pulldown (Cable)", "weight": 45, "reps": 9, "date": "2025-10-18" },
+      { "name": "Seated Wrist Extension (Barbell)", "weight": 45, "reps": 12, "date": "2026-05-21" }
+    ],
+    "split_counts": {
+      "Legs": 2,
+      "Baaaack": 3,
+      "Arms": 4,
+      "Shoulder baby": 2,
+      "Chestom": 1,
+      "Pull A": 7,
+      "Push A": 6
+    }
+  },
+  "hevy_analytics": {
+    "muscle_groups": [
+      { "name": "Back", "vol": 46308, "sets": 148 },
+      { "name": "Triceps", "vol": 21488, "sets": 97 },
+      { "name": "Chest", "vol": 17340, "sets": 108 },
+      { "name": "Biceps", "vol": 9600, "sets": 83 },
+      { "name": "Core/Other", "vol": 8680, "sets": 22 },
+      { "name": "Quads", "vol": 6660, "sets": 21 },
+      { "name": "Shoulders", "vol": 5020, "sets": 38 },
+      { "name": "Calves", "vol": 3230, "sets": 6 },
+      { "name": "Hams/Glutes", "vol": 1350, "sets": 13 }
+    ],
+    "weekly_volume": [
+      { "week": "2025-10-13", "vol": 6045 },
+      { "week": "2026-04-20", "vol": 4940 },
+      { "week": "2026-04-27", "vol": 16133 },
+      { "week": "2026-05-04", "vol": 24815 },
+      { "week": "2026-05-11", "vol": 26223 },
+      { "week": "2026-05-18", "vol": 41520 }
+    ],
+    "progression": [
+      { "name": "Seated Wrist Extension (Barbell)", "sessions": 5, "first": 7, "last": 65, "best": 65, "delta": 58, "pct": 829, "series": [7, 50, 57, 57, 65] },
+      { "name": "Seated Cable Row - V Grip (Cable)", "sessions": 4, "first": 35, "last": 91, "best": 91, "delta": 56, "pct": 160, "series": [35, 67, 66, 91] },
+      { "name": "Bench Press (Smith Machine)", "sessions": 3, "first": 13, "last": 28, "best": 28, "delta": 15, "pct": 115, "series": [13, 27, 28] },
+      { "name": "Iso-Lateral Row (Machine)", "sessions": 8, "first": 42, "last": 87, "best": 87, "delta": 45, "pct": 107, "series": [42, 47, 53, 70, 70, 45, 82, 87] },
+      { "name": "Overhead Triceps Extension (Cable)", "sessions": 5, "first": 14, "last": 27, "best": 28, "delta": 13, "pct": 93, "series": [14, 25, 28, 28, 27] },
+      { "name": "Bicep Curl (Cable)", "sessions": 3, "first": 21, "last": 40, "best": 40, "delta": 19, "pct": 90, "series": [21, 21, 40] },
+      { "name": "T Bar Row", "sessions": 3, "first": 13, "last": 21, "best": 33, "delta": 8, "pct": 62, "series": [13, 33, 21] },
+      { "name": "Cable Fly Crossovers", "sessions": 4, "first": 21, "last": 25, "best": 25, "delta": 4, "pct": 19, "series": [21, 21, 25, 25] },
+      { "name": "Shrug (Dumbbell)", "sessions": 4, "first": 18, "last": 21, "best": 21, "delta": 3, "pct": 17, "series": [18, 18, 21, 21] },
+      { "name": "Hammer Curl (Cable)", "sessions": 7, "first": 27, "last": 30, "best": 35, "delta": 3, "pct": 11, "series": [27, 28, 28, 32, 8, 35, 30] }
+    ],
+    "regression_watch": [
+      { "name": "Preacher Curl (Machine)", "sessions": 11, "first": 14, "last": 11, "best": 14, "delta": -3, "pct": -21 },
+      { "name": "Lateral Raise (Dumbbell)", "sessions": 4, "first": 14, "last": 11, "best": 14, "delta": -3, "pct": -21 },
+      { "name": "Incline Chest Fly (Dumbbell)", "sessions": 3, "first": 27, "last": 21, "best": 27, "delta": -6, "pct": -22 },
+      { "name": "Lat Pulldown (Cable)", "sessions": 10, "first": 59, "last": 44, "best": 59, "delta": -15, "pct": -25 }
+    ]
+  },
+  "hevy_audit": {
+    "junk_volume": [
+      { "date": "2026-05-22", "name": "Lat Pulldown (Cable)", "sets": 11, "session": "Baaaack" },
+      { "date": "2026-05-19", "name": "Lat Pulldown (Cable)", "sets": 9, "session": "Baaaack" },
+      { "date": "2026-05-16", "name": "Lat Pulldown (Cable)", "sets": 9, "session": "Baaaack" }
+    ]
+  },
+  "exercise_history": {
+    "Lat Pulldown (Cable)": [
+      { "date": "2025-10-18", "e1": 59, "top": "45 kg × 9", "sets": 5, "vol": 2100 },
+      { "date": "2026-04-20", "e1": 44, "top": "35 kg × 8", "sets": 4, "vol": 1120 },
+      { "date": "2026-04-27", "e1": 42, "top": "30 kg × 12", "sets": 4, "vol": 1260 },
+      { "date": "2026-04-30", "e1": 42, "top": "30 kg × 12", "sets": 4, "vol": 1400 },
+      { "date": "2026-05-04", "e1": 51, "top": "40 kg × 8", "sets": 4, "vol": 1610 },
+      { "date": "2026-05-08", "e1": 49, "top": "35 kg × 12", "sets": 4, "vol": 1590 },
+      { "date": "2026-05-12", "e1": 52, "top": "40 kg × 9", "sets": 5, "vol": 1680 },
+      { "date": "2026-05-16", "e1": 47, "top": "35 kg × 10", "sets": 9, "vol": 2935 },
+      { "date": "2026-05-19", "e1": 49, "top": "35 kg × 12", "sets": 9, "vol": 2685 },
+      { "date": "2026-05-22", "e1": 44, "top": "35 kg × 8", "sets": 11, "vol": 3300 }
+    ],
+    "Seated Cable Row - V Grip (Cable)": [
+      { "date": "2026-04-30", "e1": 35, "top": "25 kg × 12", "sets": 4, "vol": 1200 },
+      { "date": "2026-05-16", "e1": 67, "top": "50 kg × 10", "sets": 4, "vol": 1680 },
+      { "date": "2026-05-19", "e1": 66, "top": "45 kg × 14", "sets": 3, "vol": 1715 },
+      { "date": "2026-05-22", "e1": 91, "top": "65 kg × 12", "sets": 4, "vol": 2595 }
+    ],
+    "Iso-Lateral Row (Machine)": [
+      { "date": "2026-04-20", "e1": 42, "top": "30 kg × 12", "sets": 4, "vol": 1060 },
+      { "date": "2026-04-27", "e1": 47, "top": "35 kg × 10", "sets": 4, "vol": 1340 },
+      { "date": "2026-04-30", "e1": 53, "top": "35 kg × 14", "sets": 4, "vol": 1900 },
+      { "date": "2026-05-04", "e1": 70, "top": "50 kg × 12", "sets": 4, "vol": 1850 },
+      { "date": "2026-05-08", "e1": 70, "top": "50 kg × 12", "sets": 3, "vol": 1545 },
+      { "date": "2026-05-12", "e1": 45, "top": "30 kg × 15", "sets": 2, "vol": 810 },
+      { "date": "2026-05-19", "e1": 82, "top": "65 kg × 8", "sets": 4, "vol": 2390 },
+      { "date": "2026-05-22", "e1": 87, "top": "65 kg × 10", "sets": 4, "vol": 2400 }
+    ],
+    "Seated Wrist Extension (Barbell)": [
+      { "date": "2025-10-18", "e1": 7, "top": "5 kg × 12", "sets": 3, "vol": 180 },
+      { "date": "2026-05-04", "e1": 50, "top": "35 kg × 12", "sets": 3, "vol": 1295 },
+      { "date": "2026-05-08", "e1": 57, "top": "40 kg × 12", "sets": 3, "vol": 1480 },
+      { "date": "2026-05-17", "e1": 57, "top": "40 kg × 12", "sets": 3, "vol": 1480 },
+      { "date": "2026-05-21", "e1": 65, "top": "45 kg × 12", "sets": 3, "vol": 1665 }
+    ],
+    "Preacher Curl (Machine)": [
+      { "date": "2025-10-18", "e1": 14, "top": "10 kg × 12", "sets": 3, "vol": 320 },
+      { "date": "2026-04-27", "e1": 7, "top": "5 kg × 12", "sets": 3, "vol": 170 },
+      { "date": "2026-04-30", "e1": 10, "top": "7.5 kg × 10", "sets": 3, "vol": 210 },
+      { "date": "2026-05-04", "e1": 11, "top": "7.5 kg × 12", "sets": 3, "vol": 240 },
+      { "date": "2026-05-08", "e1": 11, "top": "7.5 kg × 12", "sets": 3, "vol": 240 },
+      { "date": "2026-05-13", "e1": 11, "top": "7.5 kg × 12", "sets": 5, "vol": 275 },
+      { "date": "2026-05-16", "e1": 11, "top": "7.5 kg × 12", "sets": 4, "vol": 260 },
+      { "date": "2026-05-17", "e1": 11, "top": "7.5 kg × 12", "sets": 4, "vol": 280 },
+      { "date": "2026-05-19", "e1": 11, "top": "7.5 kg × 12", "sets": 3, "vol": 240 },
+      { "date": "2026-05-21", "e1": 13, "top": "10 kg × 10", "sets": 4, "vol": 305 },
+      { "date": "2026-05-22", "e1": 11, "top": "7.5 kg × 12", "sets": 3, "vol": 240 }
+    ],
+    "Hammer Curl (Cable)": [
+      { "date": "2025-10-18", "e1": 27, "top": "20 kg × 10", "sets": 3, "vol": 585 },
+      { "date": "2026-04-30", "e1": 28, "top": "20 kg × 12", "sets": 3, "vol": 610 },
+      { "date": "2026-05-04", "e1": 28, "top": "20 kg × 12", "sets": 3, "vol": 720 },
+      { "date": "2026-05-08", "e1": 32, "top": "25 kg × 8", "sets": 2, "vol": 440 },
+      { "date": "2026-05-13", "e1": 8, "top": "5 kg × 15", "sets": 2, "vol": 150 },
+      { "date": "2026-05-19", "e1": 35, "top": "25 kg × 12", "sets": 3, "vol": 810 },
+      { "date": "2026-05-22", "e1": 30, "top": "20 kg × 15", "sets": 2, "vol": 540 }
+    ]
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "spotify_summary": {
+    "total_min": 3772,
+    "plays": 1563,
+    "skips": 629,
+    "top_artists": [
+      { "name": "Pritam", "min": 229 },
+      { "name": "Shashwat Sachdev", "min": 152 },
+      { "name": "Shankar-Ehsaan-Loy", "min": 113 },
+      { "name": "Rashmeet Kaur", "min": 107 },
+      { "name": "Parikrama", "min": 72 },
+      { "name": "The Local Train", "min": 72 },
+      { "name": "Sukhwinder Singh", "min": 69 },
+      { "name": "Sachin-Jigar", "min": 67 },
+      { "name": "A.R. Rahman", "min": 66 },
+      { "name": "Anuv Jain", "min": 66 }
+    ],
+    "top_tracks": [
+      { "track": "Faqeeran - Live", "artist": "Rashmeet Kaur", "min": 107 },
+      { "track": "Chinnamma Chilakkamma", "artist": "Sukhwinder Singh", "min": 59 },
+      { "track": "Bairan", "artist": "Banjaare", "min": 53 },
+      { "track": "Ik Junoon (Paint It Red)", "artist": "Vishal Dadlani", "min": 44 },
+      { "track": "Open Skies - Live", "artist": "Parikrama", "min": 33 }
+    ],
+    "by_month": [
+      { "month": "2025-12", "min": 2 },
+      { "month": "2026-01", "min": 472 },
+      { "month": "2026-02", "min": 1012 },
+      { "month": "2026-03", "min": 1771 },
+      { "month": "2026-04", "min": 515 }
+    ],
+    "by_hour": [292, 317, 138, 49, 2, 5, 2, 96, 387, 57, 139, 96, 53, 192, 127, 48, 40, 57, 191, 197, 279, 317, 353, 337]
+  },
+  "spotify_deep": {
+    "account": "tuhinb222@gmail.com",
+    "liked_tracks": 670,
+    "liked_albums": 5,
+    "followed_artists": 60,
+    "banned_tracks": 3,
+    "top_liked_artists": [
+      { "name": "Pritam", "n": 26 },
+      { "name": "A.R. Rahman", "n": 12 },
+      { "name": "Shankar-Ehsaan-Loy", "n": 12 },
+      { "name": "Coldplay", "n": 10 },
+      { "name": "Arnob", "n": 8 }
+    ],
+    "played_artist_count": 449,
+    "liked_overlap": 224,
+    "liked_play_share": 47,
+    "dormant_liked": [
+      { "name": "Tasrif Khan", "n": 4 },
+      { "name": "Agnee", "n": 3 },
+      { "name": "Sam Smith", "n": 3 },
+      { "name": "Kurt Hugo Schneider", "n": 3 },
+      { "name": "Ashes Bangladesh", "n": 3 },
+      { "name": "Kishore Kumar", "n": 3 },
+      { "name": "Ali Sethi", "n": 3 },
+      { "name": "Arijit Singh", "n": 3 }
+    ],
+    "inference_count": 202,
+    "readable_inferences": [
+      "1P_Custom_Gujarati_Language_Content_Listeners",
+      "1P_Custom_India_50KPlus_Device_Listeners",
+      "interest_education",
+      "1P_Custom_English_Language_Content_Listeners",
+      "1P_Custom_Smart_Technology_Streamers",
+      "interest_healthy-living",
+      "interest_business-and-finance",
+      "interest_careers",
+      "interest_pop-culture",
+      "1P_Custom_Tamil_Language_Content_Listeners"
+    ],
+    "searches_count": 144,
+    "recent_searches": ["dhurandhar 2", "karsh kale", "dhurandhar the revenge", "lakkhichhara", "euphori"],
+    "playlists": [
+      { "name": "Who needs therapy when you have music 🎶🎤❤️", "tracks": 597, "modified": "2025-04-07" },
+      { "name": "My Shazam Tracks", "tracks": 17, "modified": "2026-02-28" },
+      { "name": "The Adam Project", "tracks": 20, "modified": "2022-03-12" },
+      { "name": "My World", "tracks": 43, "modified": "2022-02-08" }
+    ],
+    "radar": {
+      "loyalty": 50,
+      "discovery": 53,
+      "focus": 60,
+      "nightOwl": 39,
+      "bingeing": 47
+    }
+  },
+  "artist_history": {
+    "Pritam": {
+      "total": 229,
+      "months": [
+        { "m": "01", "min": 22 },
+        { "m": "02", "min": 106 },
+        { "m": "03", "min": 76 },
+        { "m": "04", "min": 25 },
+        { "m": "05", "min": 0 }
+      ],
+      "tracks": [
+        { "t": "Jiyein Kyun", "min": 13 },
+        { "t": "Bhool Bhulaiyaa", "min": 12 },
+        { "t": "Ilahi", "min": 11 },
+        { "t": "Ya Ali", "min": 10 }
+      ]
+    },
+    "Shashwat Sachdev": {
+      "total": 152,
+      "months": [
+        { "m": "01", "min": 11 },
+        { "m": "02", "min": 20 },
+        { "m": "03", "min": 38 },
+        { "m": "04", "min": 82 },
+        { "m": "05", "min": 0 }
+      ],
+      "tracks": [
+        { "t": "Jaiye Sajana", "min": 28 },
+        { "t": "Naal Nachna", "min": 18 },
+        { "t": "Dhurandhar The Revenge - Aari Aari", "min": 18 },
+        { "t": "Gehra Hua", "min": 10 }
+      ]
+    },
+    "Shankar-Ehsaan-Loy": {
+      "total": 113,
+      "months": [
+        { "m": "01", "min": 0 },
+        { "m": "02", "min": 53 },
+        { "m": "03", "min": 38 },
+        { "m": "04", "min": 23 },
+        { "m": "05", "min": 0 }
+      ],
+      "tracks": [
+        { "t": "It's the Time to Disco", "min": 19 },
+        { "t": "Mitwa", "min": 13 },
+        { "t": "Noor E Khuda", "min": 13 },
+        { "t": "Kajra Re", "min": 9 }
+      ]
+    },
+    "Rashmeet Kaur": {
+      "total": 107,
+      "months": [
+        { "m": "01", "min": 30 },
+        { "m": "02", "min": 60 },
+        { "m": "03", "min": 17 },
+        { "m": "04", "min": 0 },
+        { "m": "05", "min": 0 }
+      ],
+      "tracks": [
+        { "t": "Faqeeran - Live", "min": 107 }
+      ]
+    },
+    "Parikrama": {
+      "total": 72,
+      "months": [
+        { "m": "01", "min": 0 },
+        { "m": "02", "min": 0 },
+        { "m": "03", "min": 0 },
+        { "m": "04", "min": 72 },
+        { "m": "05", "min": 0 }
+      ],
+      "tracks": [
+        { "t": "Open Skies - Live", "min": 33 },
+        { "t": "But It Rained", "min": 14 },
+        { "t": "I Believe", "min": 6 }
+      ]
+    }
+  }
+}

@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* ============== DARK THEME (default) ============== */
+:root {
+  --bg: #0c0e13;
+  --panel: #0f1219;
+  --card: #12151d;
+  --card2: #161a24;
+  --border: #1d212c;
+  --border2: #2b3145;
+  --text: #e7eaf2;
+  --text2: #c6cbda;
+  --text3: #9aa1b5;
+  --mut: #5a6175;
+  --accent: #5b63f0;
+  --accentT: #8b93f8;
+  --good: #34d399;
+  --goodBg: #0f1f1a;
+  --goodBd: #1d3a30;
+  --warn: #fbbf24;
+  --warnBg: #1f1a10;
+  --warnBd: #3a2f14;
+  --bad: #f87181;
+  --badBg: #231318;
+  --badBd: #43202a;
+  --info: #38bdf8;
+  --infoBg: #131e26;
+  --pink: #e879b9;
+  --pinkBg: #20141f;
+  --briefBg: linear-gradient(140deg, #151a2c, #12151d 60%);
+  --briefBd: #232a44;
+  --logoGrad: linear-gradient(135deg, #5b63f0, #8b5cf6);
+  --chipBg: #232840;
+  --headerBg: rgba(12,14,19,0.9);
+  --track: #232733;
+  --checkText: #0c0e13;
+  --bgGlow: rgba(91,99,240,0.14);
+  --cardSh: inset 0 1px 0 rgba(255,255,255,0.035), 0 1px 3px rgba(0,0,0,0.25);
+}
+
+/* ============== LIGHT THEME ============== */
+body.k-light {
+  --bg: #f7f5f2;
+  --panel: #ffffff;
+  --card: #ffffff;
+  --card2: #faf8f5;
+  --border: #e8e2d9;
+  --border2: #d9cfc0;
+  --text: #1c1917;
+  --text2: #44403c;
+  --text3: #78716c;
+  --mut: #a8a29e;
+  --accent: #ea580c;
+  --accentT: #c2410c;
+  --good: #16a34a;
+  --goodBg: #f0fdf4;
+  --goodBd: #bbf7d0;
+  --warn: #b45309;
+  --warnBg: #fffbeb;
+  --warnBd: #fde68a;
+  --bad: #dc2626;
+  --badBg: #fef2f2;
+  --badBd: #fecaca;
+  --info: #0369a1;
+  --infoBg: #f0f9ff;
+  --pink: #be185d;
+  --pinkBg: #fdf2f8;
+  --briefBg: linear-gradient(140deg, #fff7ed, #ffffff 60%);
+  --briefBd: #fed7aa;
+  --logoGrad: linear-gradient(135deg, #ea580c, #f59e0b);
+  --chipBg: #ffedd5;
+  --headerBg: rgba(247,245,242,0.92);
+  --track: #e8e2d9;
+  --checkText: #ffffff;
+  --bgGlow: rgba(234,88,12,0.10);
+  --cardSh: 0 1px 2px rgba(28,25,23,0.05), 0 4px 14px rgba(28,25,23,0.05);
+}
+
+/* ============== RESET ============== */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(1100px 540px at 78% -12%, var(--bgGlow), transparent 62%) fixed, var(--bg);
+  font-family: 'Space Grotesk', 'IBM Plex Sans', system-ui, sans-serif;
+  color: var(--text);
+}
+a { color: var(--accentT); text-decoration: none; }
+a:hover { text-decoration: underline; }
+input, textarea { font-family: inherit; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--track); border-radius: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ============== ANIMATIONS ============== */
+@keyframes kpulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+@keyframes kfade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes kgrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes kbar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes kslide { from { opacity: 0; transform: translateX(26px); } to { opacity: 1; transform: none; } }
+@keyframes kfadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes kspin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* ============== UTILITIES ============== */
+.mono { font-family: 'IBM Plex Mono', monospace; }
+
+/* ============== LAYOUT ============== */
+.app { display: flex; height: 100vh; overflow: hidden; }
+
+/* Sidebar */
+.side {
+  width: 232px; flex: none;
+  display: flex; flex-direction: column;
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+}
+.brand { display: flex; align-items: center; gap: 10px; padding: 18px 18px 16px; }
+.logo {
+  width: 34px; height: 34px; flex: none;
+  border-radius: 8px; background: var(--logoGrad);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 15px; letter-spacing: -.5px; color: #fff;
+}
+.brandName { font-size: 13.5px; font-weight: 700; letter-spacing: -.2px; white-space: nowrap; }
+.brandSub { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--mut); letter-spacing: 1.4px; text-transform: uppercase; white-space: nowrap; }
+
+/* Nav */
+.nav { display: flex; flex-direction: column; gap: 2px; padding: 6px 10px 0; }
+.navItem {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: 8px;
+  cursor: pointer; font-size: 13px; font-weight: 500;
+  color: var(--text2); transition: background .15s;
+  text-decoration: none;
+}
+.navItem:hover { background: var(--card2); text-decoration: none; }
+.navItem.active { background: var(--chipBg); color: var(--accentT); }
+.navGlyph { font-family: 'IBM Plex Mono', monospace; font-size: 11px; width: 16px; text-align: center; }
+.navBadge {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  padding: 1px 7px; border-radius: 10px;
+  background: var(--chipBg); color: var(--accentT);
+}
+
+/* Connections */
+.conns { padding: 14px 18px; border-top: 1px solid var(--border); }
+.connsTitle { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--mut); margin-bottom: 10px; }
+.connRow { display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: var(--text3); padding: 2px 4px; margin: -2px -4px; border-radius: 6px; }
+.connRow:hover { background: var(--card2); color: var(--text); }
+.dot { width: 6px; height: 6px; flex: none; border-radius: 50%; }
+
+/* Main */
+.main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.topbar {
+  height: 54px; flex: none;
+  display: flex; align-items: center; gap: 14px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--headerBg);
+  backdrop-filter: blur(12px);
+}
+.viewTitle { font-size: 15px; font-weight: 600; letter-spacing: -.2px; }
+.viewSub { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--mut); }
+.content { flex: 1; overflow-y: auto; padding: 24px; }
+
+/* ============== PILLS ============== */
+.pill {
+  display: flex; align-items: center; gap: 7px;
+  cursor: pointer; border: 1px solid var(--border2);
+  background: var(--card2); padding: 4px 12px;
+  border-radius: 20px; font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px; color: var(--text3); user-select: none;
+  transition: border-color .15s, color .15s;
+}
+.pill:hover { border-color: var(--accentT); color: var(--text); }
+.pillGood {
+  display: flex; align-items: center; gap: 6px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+  color: var(--good); border: 1px solid var(--goodBd);
+  background: var(--goodBg); padding: 4px 11px; border-radius: 20px;
+}
+
+/* ============== CARDS ============== */
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; box-shadow: var(--cardSh);
+  padding: 18px 22px; margin-bottom: 14px;
+}
+.card.pad-sm { padding: 16px 18px; }
+.brief {
+  background: var(--briefBg); border: 1px solid var(--briefBd);
+  border-radius: 14px; box-shadow: var(--cardSh);
+  padding: 18px 22px; margin-bottom: 14px;
+}
+
+/* ============== GRID ============== */
+.gridN { display: grid; gap: 14px; }
+.g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.rowFlex { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+
+/* ============== STAT CARDS ============== */
+.statCard {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; box-shadow: var(--cardSh);
+  padding: 16px 18px; cursor: pointer;
+  transition: border-color .2s, transform .2s;
+}
+.statCard:hover { border-color: var(--accentT); transform: translateY(-2px); }
+.statLbl {
+  font-family: 'IBM Plex Mono', monospace; font-size: 9.5px;
+  letter-spacing: 1.2px; text-transform: uppercase; color: var(--mut);
+}
+.statVal { font-size: 27px; font-weight: 700; letter-spacing: -1px; margin: 6px 0 2px; }
+.statSub { font-size: 11.5px; color: var(--text3); }
+
+/* ============== MISC COMPONENTS ============== */
+.h2 { font-size: 13px; font-weight: 600; }
+.h2sub { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--mut); }
+.chip {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  padding: 4px 12px; border-radius: 12px; cursor: pointer;
+  border: 1px solid var(--border2); background: var(--card2);
+  color: var(--text3); transition: border-color .15s;
+}
+.chip:hover { border-color: var(--accentT); }
+.chip.on { border-color: var(--accentT); color: var(--accentT); background: var(--chipBg); }
+.hl { display: flex; align-items: baseline; gap: 7px; padding: 5px 12px; border-radius: 9px; background: var(--card2); border: 1px solid var(--border); flex: none; }
+.hlBig { display: flex; align-items: baseline; gap: 7px; padding: 6px 13px; border-radius: 9px; background: var(--card); border: 1px solid var(--border); box-shadow: var(--cardSh); flex: none; }
+.aiTag { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--accentT); }
+.track { height: 5px; border-radius: 3px; background: var(--track); }
+.fill { height: 100%; border-radius: 3px; transform-origin: left; animation: kgrow .6s ease both; }
+.deltaChip { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; padding: 2px 7px; border-radius: 9px; }
+.evPt { display: flex; gap: 8px; align-items: flex-start; }
+
+/* ============== TASKS ============== */
+.taskRow {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 9px 11px; border-radius: 8px;
+  background: var(--card2); border: 1px solid var(--border);
+  cursor: pointer; transition: border-color .15s;
+}
+.taskRow:hover { border-color: var(--border2); }
+.chk {
+  width: 15px; height: 15px; flex: none; margin-top: 1px;
+  border-radius: 5px; border: 1.5px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: var(--checkText); transition: background .15s;
+}
+.chk.done { background: var(--good); border-color: var(--good); }
+.taskText.done { text-decoration: line-through; color: var(--mut); }
+
+/* ============== INSIGHT CARD ============== */
+.insightCard {
+  border: 1px solid var(--border); background: var(--card2);
+  border-radius: 11px; padding: 13px 15px;
+  animation: kfade .35s ease both;
+}
+
+/* ============== SESSION CARD ============== */
+.sessCard {
+  border: 1px solid var(--border); background: var(--card2);
+  border-radius: 10px; padding: 12px 14px; margin-bottom: 10px;
+}
+
+/* ============== MODAL / DRAWER / TOAST ============== */
+.modal-bg {
+  position: fixed; inset: 0; background: rgba(0,0,0,.55);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 8vh; z-index: 50; animation: kfadeIn .15s ease;
+}
+.modal {
+  background: var(--panel); border: 1px solid var(--border2);
+  border-radius: 14px; padding: 0; width: 560px; max-width: 92vw;
+  max-height: 78vh; overflow: hidden; display: flex; flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+.modalHead { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+.modalBody { padding: 14px 18px; overflow-y: auto; }
+.paletteInput { flex: 1; background: transparent; border: none; outline: none; font-size: 14px; color: var(--text); font-family: 'Space Grotesk', sans-serif; }
+.paletteRow { padding: 9px 10px; border-radius: 8px; cursor: pointer; font-size: 13px; display: flex; gap: 10px; align-items: center; }
+.paletteRow:hover, .paletteRow.sel { background: var(--card2); }
+
+.toast {
+  position: fixed; bottom: 22px; right: 22px;
+  background: var(--card); border: 1px solid var(--border2);
+  border-radius: 10px; padding: 10px 16px; font-size: 12.5px;
+  box-shadow: var(--cardSh); z-index: 60; animation: kfade .25s ease both;
+}
+
+.drawer {
+  position: fixed; top: 0; right: 0; height: 100vh;
+  width: 420px; max-width: 92vw;
+  background: var(--panel); border-left: 1px solid var(--border2);
+  z-index: 55; box-shadow: -10px 0 40px rgba(0,0,0,.4);
+  display: flex; flex-direction: column; animation: kslide .25s ease both;
+}
+.drawerHead { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+.drawerBody { padding: 16px 20px; overflow-y: auto; flex: 1; }
+
+/* ============== LOADING ============== */
+.loading-screen {
+  display: flex; align-items: center; justify-content: center;
+  height: 100vh; flex-direction: column; gap: 16px;
+}
+.spinner {
+  width: 32px; height: 32px; border: 3px solid var(--border2);
+  border-top-color: var(--accentT); border-radius: 50%;
+  animation: kspin .7s linear infinite;
+}
+
+/* ============== RECHARTS OVERRIDES ============== */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: var(--border);
+}
+.recharts-text { fill: var(--mut); font-family: 'IBM Plex Mono', monospace; font-size: 10px; }
+.recharts-tooltip-wrapper { z-index: 10; }
+.recharts-default-tooltip {
+  background: var(--card) !important;
+  border: 1px solid var(--border2) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3) !important;
+}
+.recharts-tooltip-label { font-weight: 600 !important; color: var(--text) !important; }
+.recharts-tooltip-item { font-family: 'IBM Plex Mono', monospace !important; font-size: 11px !important; }
+
+/* ============== TIMELINE (Today view) ============== */
+.timeline-item {
+  display: flex; gap: 14px; padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  animation: kfade .3s ease both;
+}
+.timeline-dot {
+  width: 10px; height: 10px; flex: none;
+  border-radius: 50%; margin-top: 4px;
+  border: 2px solid var(--border2);
+}
+.timeline-content { flex: 1; min-width: 0; }
+.timeline-time { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--mut); }
+.timeline-title { font-size: 13px; font-weight: 600; margin-top: 3px; }
+.timeline-detail { font-size: 11.5px; color: var(--text3); margin-top: 3px; line-height: 1.5; }
+
+/* ============== WROW ============== */
+.wRow {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; cursor: pointer; padding: 3px 6px;
+  margin: -3px -6px; border-radius: 7px; transition: background .15s;
+}
+.wRow:hover { background: var(--card2); }
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 1200px) {
+  .g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .side { width: 56px; }
+  .brandName, .brandSub, .navItem span:not(.navGlyph), .navBadge, .conns { display: none; }
+  .navItem { justify-content: center; padding: 10px; }
+  .g3, .g2 { grid-template-columns: 1fr; }
+  .content { padding: 16px; }
+}
+@media (max-width: 640px) {
+  .side { display: none; }
+  .g4 { grid-template-columns: 1fr; }
+  .topbar { padding: 0 16px; }
+}

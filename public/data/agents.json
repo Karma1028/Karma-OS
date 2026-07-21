@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Hermes",
+    "dot": "var(--good)",
+    "anim": "kpulse 2s ease infinite",
+    "state": "active",
+    "badgeBg": "var(--goodBg)",
+    "badgeColor": "var(--good)",
+    "desc": "Primary brain on WSL2 (karma_28b) — Telegram gateway, subprocess delegation to Gemini CLI and notebooklm-py.",
+    "facts": [
+      { "k": "runtime", "v": "WSL2 / karma_28b" },
+      { "k": "config", "v": "~/.hermes/config.yaml" },
+      { "k": "role", "v": "Telegram gateway" }
+    ]
+  },
+  {
+    "name": "Odysseus",
+    "dot": "var(--good)",
+    "anim": "kpulse 2s ease infinite",
+    "state": "active",
+    "badgeBg": "var(--goodBg)",
+    "badgeColor": "var(--good)",
+    "desc": "MCP server layer — memory.json / presets / fastembed cache, wired into Nexus panels 2026-07-19.",
+    "facts": [
+      { "k": "path", "v": "odysseus/app.py" },
+      { "k": "data", "v": "memory.json, presets.json" },
+      { "k": "wired", "v": "2026-07-19" }
+    ]
+  },
+  {
+    "name": "Antigravity (Claude Code)",
+    "dot": "var(--good)",
+    "anim": "kpulse 2s ease infinite",
+    "state": "active",
+    "badgeBg": "var(--goodBg)",
+    "badgeColor": "var(--good)",
+    "desc": "Coding + wiki compilation agent, manual trigger only. Read+Write on wiki/, raw/, graphify-out/.",
+    "facts": [
+      { "k": "trigger", "v": "manual" },
+      { "k": "writes", "v": "wiki/, graphify-out/" },
+      { "k": "runtime", "v": "Git Bash / Windows" }
+    ]
+  },
+  {
+    "name": "KARMA-LLM Proxy",
+    "dot": "var(--warn)",
+    "anim": "kpulse 2.4s ease infinite",
+    "state": "scaffold",
+    "badgeBg": "var(--warnBg)",
+    "badgeColor": "var(--warn)",
+    "desc": "/v1/models endpoint scaffolded (karma-llm-proxy/proxy.py) — not yet wired to a live model router.",
+    "facts": [
+      { "k": "path", "v": "karma-llm-proxy/proxy.py" },
+      { "k": "endpoint", "v": "/v1/models" },
+      { "k": "status", "v": "scaffold only" }
+    ]
+  }
+]
