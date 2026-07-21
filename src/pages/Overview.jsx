@@ -65,7 +65,7 @@ export default function Overview({ data }) {
         </div>
         <div style={{ flex: 1 }}>
           <div className="h2" style={{ marginBottom: 5 }}>SYSTEM ONLINE. WELCOME BACK.</div>
-          <div className="h2sub" style={{ marginBottom: 15 }}>Current system health is <span className="hl">{healthLabel(hScore)}</span>.</div>
+          <div className="h2sub" style={{ marginBottom: 15 }}>Current system health is <span className="hl" style={{ color: healthLabel(hScore).color }}>{healthLabel(hScore).label}</span>.</div>
           <div className="rowFlex" style={{ gap: 10 }}>
             <div className="chip">ACTIVE STREAMS: 4</div>
             <div className="chip">SYNC STATUS: NORMAL</div>
