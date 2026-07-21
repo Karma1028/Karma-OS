@@ -261,10 +261,10 @@ export default function Overview({ data }) {
 
           <div className="card">
             <div className="h2">INTELLIGENCE</div>
-            {data.feed?.news_feed?.slice(0, 2).map((item, i) => (
+            {data.feed?.news_feed?.items?.slice(0, 2).map((item, i) => (
               <div key={i} style={{ marginTop: 15, paddingBottom: 15, borderBottom: i === 0 ? '1px solid var(--border)' : 'none' }}>
-                <div className="statLbl">{short(item.title, 40)}</div>
-                <div className="statSub" style={{ marginTop: 5 }}>{item.source} • {item.pubDate}</div>
+                <div className="statLbl">{item.title?.length > 40 ? item.title.slice(0, 40) + '…' : item.title}</div>
+                <div className="statSub" style={{ marginTop: 5 }}>{item.source} • {item.date}</div>
               </div>
             ))}
           </div>

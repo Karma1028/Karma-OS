@@ -10,7 +10,7 @@ export default function Tasks() {
 
   const handleAdd = (e) => {
     if (e.key === 'Enter' && newTask.trim()) {
-      addTask({ id: Date.now(), title: newTask.trim(), done: false, source: 'manual' });
+      addTask(newTask.trim(), 'manual');
       showToast('Task added');
       setNewTask('');
     }
