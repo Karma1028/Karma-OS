@@ -67,9 +67,9 @@ export default function Tasks() {
         <div className="card">
           <div className="h2">AI SUGGESTS</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '10px' }}>
-            <div className="insightCard" onClick={() => { addTask({id:Date.now(), title:'Deload central nervous system', done:false, source:'agents'}); showToast('Added Deload task'); }} style={{ cursor: 'pointer' }}>Deload CNS</div>
-            <div className="insightCard" onClick={() => { addTask({id:Date.now()+1, title:'Ingest recent vault notes', done:false, source:'vault'}); showToast('Added Ingest task'); }} style={{ cursor: 'pointer' }}>Ingest Notes</div>
-            <div className="insightCard" onClick={() => { addTask({id:Date.now()+2, title:'Wire memory clusters', done:false, source:'memory'}); showToast('Added Wire Memory task'); }} style={{ cursor: 'pointer' }}>Wire Memory</div>
+            <div className="insightCard" onClick={() => { addTask('Deload central nervous system', 'agents'); showToast('Added Deload task'); }} style={{ cursor: 'pointer' }}>Deload CNS</div>
+            <div className="insightCard" onClick={() => { addTask('Ingest recent vault notes', 'vault'); showToast('Added Ingest task'); }} style={{ cursor: 'pointer' }}>Ingest Notes</div>
+            <div className="insightCard" onClick={() => { addTask('Wire memory clusters', 'memory'); showToast('Added Wire Memory task'); }} style={{ cursor: 'pointer' }}>Wire Memory</div>
           </div>
         </div>
 
@@ -117,7 +117,7 @@ export default function Tasks() {
                 <div className={`chk ${t.done ? 'checked' : ''}`} style={{ width: '16px', height: '16px', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', background: t.done ? 'var(--good)' : 'transparent', transition: 'background 0.2s ease' }}>
                   {t.done && <div style={{ width: '8px', height: '8px', background: '#000' }} />}
                 </div>
-                <div style={{ textDecoration: t.done ? 'line-through' : 'none', flex: 1, fontFamily: 'IBM Plex Mono', fontSize: '14px' }}>{t.title}</div>
+                <div style={{ textDecoration: t.done ? 'line-through' : 'none', flex: 1, fontFamily: 'IBM Plex Mono', fontSize: '14px' }}>{t.text}</div>
                 <div className="chip" style={{ fontSize: '10px' }}>{t.source}</div>
               </div>
             ))}
@@ -163,19 +163,19 @@ export default function Tasks() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '10px', marginTop: '15px', height: '300px' }}>
             <div style={{ border: '1px dashed var(--warn)', padding: '10px', display: 'flex', flexDirection: 'column', gap: '5px', overflowY: 'auto' }}>
               <div className="mut" style={{ fontSize: '10px', textTransform: 'uppercase' }}>Urgent / Important</div>
-              {tasks.filter(t => !t.done && (t.source === 'fitness' || t.source === 'agents')).map(t => <div key={t.id} className="chip">{t.title}</div>)}
+              {tasks.filter(t => !t.done && (t.source === 'fitness' || t.source === 'agents')).map(t => <div key={t.id} className="chip">{t.text}</div>)}
             </div>
             <div style={{ border: '1px dashed var(--good)', padding: '10px', display: 'flex', flexDirection: 'column', gap: '5px', overflowY: 'auto' }}>
               <div className="mut" style={{ fontSize: '10px', textTransform: 'uppercase' }}>Not Urgent / Important</div>
-              {tasks.filter(t => !t.done && (t.source === 'memory' || t.source === 'vault')).map(t => <div key={t.id} className="chip">{t.title}</div>)}
+              {tasks.filter(t => !t.done && (t.source === 'memory' || t.source === 'vault')).map(t => <div key={t.id} className="chip">{t.text}</div>)}
             </div>
             <div style={{ border: '1px dashed var(--bad)', padding: '10px', display: 'flex', flexDirection: 'column', gap: '5px', overflowY: 'auto' }}>
               <div className="mut" style={{ fontSize: '10px', textTransform: 'uppercase' }}>Urgent / Not Important</div>
-              {tasks.filter(t => !t.done && (t.source === 'feed' || t.source === 'spotify')).map(t => <div key={t.id} className="chip">{t.title}</div>)}
+              {tasks.filter(t => !t.done && (t.source === 'feed' || t.source === 'spotify')).map(t => <div key={t.id} className="chip">{t.text}</div>)}
             </div>
             <div style={{ border: '1px dashed var(--mut)', padding: '10px', display: 'flex', flexDirection: 'column', gap: '5px', overflowY: 'auto' }}>
               <div className="mut" style={{ fontSize: '10px', textTransform: 'uppercase' }}>Not Urgent / Not Important</div>
-              {tasks.filter(t => !t.done && !['fitness','agents','memory','vault','feed','spotify'].includes(t.source)).map(t => <div key={t.id} className="chip">{t.title}</div>)}
+              {tasks.filter(t => !t.done && !['fitness','agents','memory','vault','feed','spotify'].includes(t.source)).map(t => <div key={t.id} className="chip">{t.text}</div>)}
             </div>
           </div>
         </div>

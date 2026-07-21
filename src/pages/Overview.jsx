@@ -8,8 +8,8 @@ export default function Overview({ data }) {
   const navigate = useNavigate();
   const { tasks, toggleTask } = useStore();
 
-  const hScore = computeHealth(data);
-  const openTasks = tasks.filter(t => !t.completed).slice(0, 4);
+  const hScore = computeHealth(data).score;
+  const openTasks = tasks.filter(t => !t.done).slice(0, 4);
 
   const mData = data.monthly || [];
   const latestMonth = mData[mData.length - 1] || {};
@@ -77,17 +77,17 @@ export default function Overview({ data }) {
       <div className="g4">
         <div className="statCard" onClick={() => navigate('/training')} style={{ cursor: 'pointer' }}>
           <div className="statLbl">TRAINING VOLUME</div>
-          <div className="statVal">{fmtKg(data.hevy?.summary?.total_volume || 0)}</div>
+          <div className="statVal">{fmtKg(data.hevy?.hevy_summary?.total_volume_kg || 0)}</div>
           <div className="statSub">LIFETIME</div>
         </div>
         <div className="statCard" onClick={() => navigate('/listening')} style={{ cursor: 'pointer' }}>
           <div className="statLbl">LISTENING TIME</div>
-          <div className="statVal">{fmtInt(data.spotify?.summary?.total_ms ? data.spotify.summary.total_ms / 60000 : 0)}m</div>
+          <div className="statVal">{fmtInt(data.spotify?.spotify_summary?.total_min || 0)}m</div>
           <div className="statSub">LIFETIME</div>
         </div>
         <div className="statCard" onClick={() => navigate('/vault')} style={{ cursor: 'pointer' }}>
           <div className="statLbl">KNOWLEDGE VAULT</div>
-          <div className="statVal">{fmtInt((data.vault?.wiki?.pages || 0) + (data.vault?.notebooks?.length || 0))}</div>
+          <div className="statVal">{fmtInt((data.vault?.wiki || 0) + (data.vault?.notebooks || 0))}</div>
           <div className="statSub">TOTAL ASSETS</div>
         </div>
         <div className="statCard" onClick={() => navigate('/feed')} style={{ cursor: 'pointer' }}>
@@ -216,8 +216,8 @@ export default function Overview({ data }) {
             <div className="h2" style={{ marginBottom: 15 }}>TODAY'S TASKS</div>
             {openTasks.length > 0 ? openTasks.map(t => (
               <div key={t.id} className="taskRow">
-                <input type="checkbox" className="chk" checked={t.completed} onChange={() => toggleTask(t.id)} />
-                <span className="mono" style={{ fontSize: 12, flex: 1, color: t.completed ? 'var(--mut)' : 'var(--text)' }}>{t.text}</span>
+                <input type="checkbox" className="chk" checked={t.done} onChange={() => toggleTask(t.id)} />
+                <span className="mono" style={{ fontSize: 12, flex: 1, color: t.done ? 'var(--mut)' : 'var(--text)' }}>{t.text}</span>
               </div>
             )) : <div className="mono" style={{ fontSize: 12, color: 'var(--mut)' }}>No pending tasks.</div>}
           </div>
