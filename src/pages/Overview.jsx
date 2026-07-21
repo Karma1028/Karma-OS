@@ -177,16 +177,21 @@ export default function Overview({ data }) {
           <div className="card">
             <div className="h2">SYSTEM PULSE (41 WEEKS)</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 5, marginTop: 15 }}>
-              {heatStreams.map((s, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <div className="mono" style={{ width: 80, fontSize: 10, color: 'var(--text2)' }}>{s.label}</div>
-                  <div style={{ display: 'flex', gap: 2, flex: 1 }}>
-                    {s.arr.map((val, j) => (
-                      <div key={j} style={{ flex: 1, aspectRatio: '1/1', background: 'var(--accent)', opacity: Math.max(0.1, val), borderRadius: 2 }} title={`${s.label} Week ${j+1}`} />
-                    ))}
+              {heatStreams.map((s, i) => {
+                const label = s.label || s.name;
+                const arr = s.arr || s.dates || [];
+                const max = Math.max(1, ...arr);
+                return (
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <div className="mono" style={{ width: 80, fontSize: 10, color: 'var(--text2)' }}>{label}</div>
+                    <div style={{ display: 'flex', gap: 2, flex: 1 }}>
+                      {arr.map((val, j) => (
+                        <div key={j} style={{ flex: 1, aspectRatio: '1/1', background: 'var(--accent)', opacity: Math.max(0.1, val / max), borderRadius: 2 }} title={`${label} Week ${j+1}`} />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
