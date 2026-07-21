@@ -13,11 +13,13 @@ export default function Today({ data }) {
   const dayScore = totalStreams ? Math.round((activeStreams / totalStreams) * 100) : 75;
 
   const todayEvents = useMemo(() => {
+    const todayStr = TODAY.toISOString();
+    const todayDateOnly = todayStr.slice(0, 10);
     let evs = [];
     if (data.feed?.items) {
-      evs = data.feed.items.filter(i => i.date === TODAY || i.date.startsWith(TODAY));
+      evs = data.feed.items.filter(i => i.date === todayDateOnly || i.date.startsWith(todayDateOnly));
     }
-    evs.push({ date: TODAY, type: 'system', title: 'Dashboard generated', detail: 'KARMA-OS v2 init', domain: 'intel' });
+    evs.push({ date: todayStr, type: 'system', title: 'Dashboard generated', detail: 'KARMA-OS v2 init', domain: 'intel' });
     evs.push({ date: '2026-07-19', type: 'system', title: 'Odysseus MCP wired (2d ago)', detail: 'Agent connected', domain: 'intel' });
     return evs.sort((a, b) => new Date(b.date) - new Date(a.date));
   }, [data.feed]);
