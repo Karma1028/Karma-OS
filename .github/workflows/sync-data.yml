@@ -1,0 +1,36 @@
+name: Sync live dashboard data
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # every 6 hours
+  workflow_dispatch: {}    # allow manual "Run workflow" from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run sync
+        env:
+          HEVY_API_KEY: ${{ secrets.HEVY_API_KEY }}
+        run: python scripts/sync_dashboard_data.py --force
+
+      - name: Commit refreshed data if changed
+        run: |
+          git config user.name "karma-os-sync-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet public/data/; then
+            echo "No data changes, skipping commit."
+          else
+            git add public/data/
+            git commit -m "chore: automated data sync $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          fi

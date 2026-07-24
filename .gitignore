@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Sync script local cache (regenerated on demand, not committed)
+scripts/hevy_cache.json
+scripts/exercise_muscle_map.json
+__pycache__/
