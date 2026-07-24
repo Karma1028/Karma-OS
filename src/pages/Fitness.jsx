@@ -6,6 +6,7 @@ import {
 } from 'recharts';
 import useStore from '../store/useStore';
 import { showToast } from '../components/Toast';
+import BodyMap from '../components/BodyMap';
 import { 
   fmtInt, fmtKg, short, SPLIT_COLORS, CHART_COLORS 
 } from '../utils/helpers';
@@ -191,6 +192,13 @@ export default function Fitness({ data }) {
              <div className="wRow"><span style={{color:'var(--info)'}}>Endurance (13+)</span><span>{fstats.rep?.endu || 0} sets</span></div>
              <div style={{marginTop: 10, color: 'var(--mut)'}}>{fstats.rep?.total || 0} total working sets classified by rep range.</div>
            </div>
+         </div>
+       </div>
+
+       <div className="card" style={{ marginBottom: 20 }}>
+         <div className="h2">BODY MAP — VOLUME HEATMAP</div>
+         <div style={{ marginTop: 15 }}>
+           <BodyMap muscleGroups={muscleGroups} />
          </div>
        </div>
 
