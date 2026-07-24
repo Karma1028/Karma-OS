@@ -18,10 +18,15 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Run sync
+      - name: Sync live Hevy data
         env:
           HEVY_API_KEY: ${{ secrets.HEVY_API_KEY }}
         run: python scripts/sync_dashboard_data.py --force
+
+      - name: Generate LLM plan from fresh data
+        env:
+          GROQ_API_KEYS: ${{ secrets.GROQ_API_KEYS }}
+        run: python scripts/generate_plan.py
 
       - name: Commit refreshed data if changed
         run: |

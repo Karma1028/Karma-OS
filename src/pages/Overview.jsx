@@ -13,6 +13,7 @@ export default function Overview({ data }) {
   const openTasks = tasks.filter(t => !t.done).slice(0, 4);
   const fstats = data.stats?.fitness || {};
   const vaultStats = data.stats?.vault || {};
+  const plan = data.plan || {};
 
   const mData = data.monthly || [];
   const latestMonth = mData[mData.length - 1] || {};
@@ -127,15 +128,36 @@ export default function Overview({ data }) {
       <div className="g2">
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           <div className="brief">
-            <div className="h2" style={{ color: 'var(--accent)' }}>AI DAILY BRIEF</div>
-            <p style={{ color: 'var(--text2)', margin: '15px 0', fontSize: 14 }}>
-              {health.activeStreams} of {health.totalStreams} streams active. ACWR sits at {fstats.acwr?.toFixed(2) ?? 'N/A'}{fstats.acwr > 1.3 ? ' — above the 1.3 safe ceiling' : ''}.
-              Vault last captured {vaultStats.daysSince ?? '?'} days ago, {health.backlog} items still waiting in the ingest backlog.
-            </p>
-            <div className="rowFlex" style={{ gap: 10 }}>
-              <div className="aiTag" style={{ background: fstats.acwr > 1.3 ? 'var(--badBg)' : 'var(--goodBg)', color: fstats.acwr > 1.3 ? 'var(--bad)' : 'var(--good)', border: `1px solid ${fstats.acwr > 1.3 ? 'var(--badBd)' : 'var(--goodBd)'}` }}>ACWR: {fstats.acwr?.toFixed(2) ?? 'N/A'}{fstats.acwr > 1.3 ? ' (HIGH)' : ''}</div>
-              <div className="aiTag" style={{ background: vaultStats.daysSince > 14 ? 'var(--warnBg)' : 'var(--goodBg)', color: vaultStats.daysSince > 14 ? 'var(--warn)' : 'var(--good)', border: `1px solid ${vaultStats.daysSince > 14 ? 'var(--warnBd)' : 'var(--goodBd)'}` }}>VAULT: {vaultStats.daysSince ?? '?'}d SINCE CAPTURE</div>
-              <div className="aiTag" style={{ background: 'var(--infoBg)', color: 'var(--info)', border: '1px solid var(--infoBd)' }}>BACKLOG: {health.backlog}</div>
+            <div className="h2" style={{ color: 'var(--accent)' }}>SYSTEM PLAN {plan.generated_at && <span className="statSub" style={{ fontWeight: 400 }}>· generated {new Date(plan.generated_at).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</span>}</div>
+            <p style={{ color: 'var(--text2)', margin: '15px 0', fontSize: 14, fontWeight: 600 }}>{plan.headline || 'No plan generated yet — run scripts/generate_plan.py.'}</p>
+            {!!plan.priorities?.length && (
+              <div style={{ marginBottom: 12 }}>
+                <div className="statLbl" style={{ marginBottom: 6 }}>PRIORITIES</div>
+                {plan.priorities.map((p, i) => (
+                  <div key={i} className="wRow" style={{ alignItems: 'flex-start' }}>
+                    <span className="aiTag" style={{
+                      background: p.urgency === 'high' ? 'var(--badBg)' : p.urgency === 'medium' ? 'var(--warnBg)' : 'var(--goodBg)',
+                      color: p.urgency === 'high' ? 'var(--bad)' : p.urgency === 'medium' ? 'var(--warn)' : 'var(--good)',
+                      flexShrink: 0,
+                    }}>{p.urgency?.toUpperCase()}</span>
+                    <div><strong>{p.title}</strong><div style={{ color: 'var(--text2)', fontSize: 12 }}>{p.reason}</div></div>
+                  </div>
+                ))}
+              </div>
+            )}
+            <div className="rowFlex" style={{ gap: 20, alignItems: 'flex-start' }}>
+              {!!plan.risks?.length && (
+                <div style={{ flex: 1 }}>
+                  <div className="statLbl" style={{ marginBottom: 6, color: 'var(--bad)' }}>RISKS</div>
+                  {plan.risks.map((r, i) => <div key={i} style={{ fontSize: 12, color: 'var(--text2)', marginBottom: 6 }}><strong style={{ color: 'var(--text)' }}>{r.title}:</strong> {r.detail}</div>)}
+                </div>
+              )}
+              {!!plan.wins?.length && (
+                <div style={{ flex: 1 }}>
+                  <div className="statLbl" style={{ marginBottom: 6, color: 'var(--good)' }}>WINS</div>
+                  {plan.wins.map((w, i) => <div key={i} style={{ fontSize: 12, color: 'var(--text2)', marginBottom: 6 }}><strong style={{ color: 'var(--text)' }}>{w.title}:</strong> {w.detail}</div>)}
+                </div>
+              )}
             </div>
           </div>
 
