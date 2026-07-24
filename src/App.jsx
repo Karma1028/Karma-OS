@@ -11,6 +11,7 @@ import Agents from './pages/Agents';
 import Intel from './pages/Intel';
 import Tasks from './pages/Tasks';
 import Analytics from './pages/Analytics';
+import Repo from './pages/Repo';
 
 export default function App() {
   const { data, loading } = useData();
@@ -39,6 +40,7 @@ export default function App() {
         <Route path="/intel" element={<Intel data={data} />} />
         <Route path="/tasks" element={<Tasks data={data} />} />
         <Route path="/analytics" element={<Analytics data={data} />} />
+        <Route path="/repo" element={<Repo data={data} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Layout>

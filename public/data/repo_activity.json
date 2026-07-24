@@ -1,0 +1,551 @@
+{
+  "generated_at": "2026-07-24T13:13:26",
+  "commit_heatmap": {
+    "days": [
+      {
+        "date": "2026-04-25",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-26",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-27",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-28",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-29",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-30",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-01",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-02",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-03",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-04",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-06",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-07",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-08",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-09",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-10",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-11",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-14",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-15",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-16",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-17",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-18",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-21",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-22",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-23",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-24",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-25",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-26",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-27",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-28",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-29",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-30",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-31",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-01",
+        "commits": 4
+      },
+      {
+        "date": "2026-06-02",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-03",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-04",
+        "commits": 1
+      },
+      {
+        "date": "2026-06-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-06",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-07",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-08",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-09",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-10",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-11",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-14",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-15",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-16",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-17",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-21",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-22",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-23",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-24",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-25",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-26",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-27",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-28",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-29",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-30",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-01",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-02",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-03",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-04",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-06",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-07",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-08",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-09",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-10",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-11",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-14",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-15",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-16",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-17",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-21",
+        "commits": 7
+      },
+      {
+        "date": "2026-07-22",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-23",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-24",
+        "commits": 2
+      }
+    ],
+    "total_commits": 20,
+    "commits_by_repo": {
+      "karma-os": 6,
+      "karma-os-dashboard": 9,
+      "karma-hermes": 5
+    },
+    "active_days": 7
+  },
+  "recent_files": [
+    {
+      "path": "karma-os-dashboard/src/pages/Repo.jsx",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:12:41"
+    },
+    {
+      "path": "karma-os-dashboard/src/App.jsx",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:12:04"
+    },
+    {
+      "path": "karma-os-dashboard/src/components/Layout.jsx",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:11:49"
+    },
+    {
+      "path": "karma-os-dashboard/src/hooks/useData.js",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:11:37"
+    },
+    {
+      "path": "karma-os-dashboard/scripts/repo_activity.py",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:11:26"
+    },
+    {
+      "path": "karma-os-dashboard/public/data/repo_activity.json",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:11:00"
+    },
+    {
+      "path": "karma-os-dashboard/src/pages/Fitness.jsx",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:08:45"
+    },
+    {
+      "path": "karma-os-dashboard/public/data/hevy.json",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:03:53"
+    },
+    {
+      "path": "karma-os-dashboard/public/data/stats.json",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:03:53"
+    },
+    {
+      "path": "karma-os-dashboard/.github/workflows/sync-data.yml",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:03:29"
+    },
+    {
+      "path": "karma-os-dashboard/.gitignore",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:03:13"
+    },
+    {
+      "path": "karma-os-dashboard/scripts/sync_dashboard_data.py",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:02:38"
+    },
+    {
+      "path": "karma-os-dashboard/scripts/analytics.py",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:02:19"
+    },
+    {
+      "path": "karma-os-dashboard/scripts/hevy_client.py",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T13:01:58"
+    },
+    {
+      "path": ".mindos/skills/sync_dashboard_data.py",
+      "folder": ".mindos",
+      "mtime": "2026-07-24T12:58:05"
+    },
+    {
+      "path": ".mindos/skills/karma_fitness/analyser.py",
+      "folder": ".mindos",
+      "mtime": "2026-07-24T12:57:59"
+    },
+    {
+      "path": ".mindos/skills/karma_fitness/hevy.py",
+      "folder": ".mindos",
+      "mtime": "2026-07-24T12:57:47"
+    },
+    {
+      "path": "obsidian-vault/.claude/2026-07-24.md",
+      "folder": "obsidian-vault",
+      "mtime": "2026-07-24T12:47:45"
+    },
+    {
+      "path": ".mindos/logs/session_logger.log",
+      "folder": ".mindos",
+      "mtime": "2026-07-24T12:47:45"
+    },
+    {
+      "path": ".mindos/logs/pipeline_2026-07-24.log",
+      "folder": ".mindos",
+      "mtime": "2026-07-24T12:35:52"
+    },
+    {
+      "path": ".mindos/skills/pipeline.py",
+      "folder": ".mindos",
+      "mtime": "2026-07-24T12:27:01"
+    },
+    {
+      "path": ".mindos/skills/spotify_live.py",
+      "folder": ".mindos",
+      "mtime": "2026-07-24T12:26:35"
+    },
+    {
+      "path": "karma-os-dashboard/src/pages/Overview.jsx",
+      "folder": "karma-os-dashboard",
+      "mtime": "2026-07-24T12:12:12"
+    },
+    {
+      "path": ".mindos/skills/fallback_llm.py",
+      "folder": ".mindos",
+      "mtime": "2026-07-24T11:59:27"
+    },
+    {
+      "path": ".mindos/skills/morning_brief.py",
+      "folder": ".mindos",
+      "mtime": "2026-07-24T11:58:59"
+    }
+  ],
+  "folder_activity": [
+    {
+      "name": "karma-os-dashboard",
+      "count": 15
+    },
+    {
+      "name": ".mindos",
+      "count": 9
+    },
+    {
+      "name": "obsidian-vault",
+      "count": 1
+    }
+  ],
+  "folder_sizes": [
+    {
+      "name": "obsidian-vault",
+      "files": 4462,
+      "mb": 2802.4
+    },
+    {
+      "name": "projects",
+      "files": 1528,
+      "mb": 59.0
+    },
+    {
+      "name": ".mindos",
+      "files": 816,
+      "mb": 11.0
+    },
+    {
+      "name": "archive",
+      "files": 51,
+      "mb": 0.4
+    },
+    {
+      "name": "karma-os-dashboard",
+      "files": 48,
+      "mb": 0.7
+    },
+    {
+      "name": "memory",
+      "files": 8,
+      "mb": 3.0
+    }
+  ]
+}

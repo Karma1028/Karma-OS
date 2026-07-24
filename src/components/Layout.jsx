@@ -15,6 +15,7 @@ const ROUTES = [
   { id: '/intel', label: 'Intel', glyph: '▤', sub: 'unified event feed' },
   { id: '/tasks', label: 'Tasks', glyph: '☑', sub: 'queue + sync log' },
   { id: '/analytics', label: 'Analytics', glyph: '◫', sub: 'cross-stream correlations' },
+  { id: '/repo', label: 'Repo', glyph: '⌥', sub: 'what changed in the codebase' },
 ];
 
 const CONNECTIONS = [

@@ -43,6 +43,13 @@ export default function Fitness({ data }) {
     return { name: w.week, change: prev ? ((curr - prev) / prev) * 100 : 0 };
   });
 
+  const lastWeek = weeklyVol[weeklyVol.length - 1];
+  const prevWeek = weeklyVol[weeklyVol.length - 2];
+  const weekDeltaPct = lastWeek && prevWeek && prevWeek.vol
+    ? Math.round(((lastWeek.vol - prevWeek.vol) / prevWeek.vol) * 100) : null;
+  const topGainer = progression.filter(p => p.pct > 0).sort((a, b) => b.pct - a.pct)[0];
+  const understaffedMuscle = volByMuscle.length ? volByMuscle[volByMuscle.length - 1] : null;
+
   const periodizationData = weeklyVol.map(w => {
      const wSess = sessions.filter(s => s.date?.startsWith(w.week?.slice(0, 7)));
      const bySplit = {};
@@ -92,16 +99,23 @@ export default function Fitness({ data }) {
          <div className="h2" style={{color:'var(--accent)'}}>COACH'S READ</div>
          <div className="grid3">
            <div>
-             <div className="h2sub" style={{color:'var(--warn)'}}>VOLUME SPIKE</div>
-             <div style={{color:'var(--text2)', fontSize:12}}>Watch out for unexpected volume increases that could lead to overtraining.</div>
+             <div className="h2sub" style={{color: weekDeltaPct > 20 ? 'var(--bad)' : 'var(--warn)'}}>VOLUME VS LAST WEEK</div>
+             <div style={{color:'var(--text2)', fontSize:12}}>
+               {weekDeltaPct === null ? 'Not enough weekly data yet.' :
+                 `${weekDeltaPct > 0 ? '+' : ''}${weekDeltaPct}% vs prior week (${fmtKg(prevWeek?.vol || 0)} → ${fmtKg(lastWeek?.vol || 0)}).${weekDeltaPct > 20 ? ' Sharp jump — watch recovery.' : ''}`}
+             </div>
            </div>
            <div>
-             <div className="h2sub" style={{color:'var(--bad)'}}>PROGRAMMING LEAK</div>
-             <div style={{color:'var(--text2)', fontSize:12}}>Inconsistent frequency on smaller muscle groups.</div>
+             <div className="h2sub" style={{color:'var(--bad)'}}>WEAKEST MUSCLE COVERAGE</div>
+             <div style={{color:'var(--text2)', fontSize:12}}>
+               {understaffedMuscle ? `${understaffedMuscle.name}: only ${fmtKg(understaffedMuscle.vol)} across ${understaffedMuscle.sets} sets — lowest of all tracked groups.` : 'No muscle-group data yet.'}
+             </div>
            </div>
            <div>
-             <div className="h2sub" style={{color:'var(--good)'}}>REAL PROGRESS</div>
-             <div style={{color:'var(--text2)', fontSize:12}}>Steady e1RM growth on primary compound movements.</div>
+             <div className="h2sub" style={{color:'var(--good)'}}>BIGGEST GAINER</div>
+             <div style={{color:'var(--text2)', fontSize:12}}>
+               {topGainer ? `${topGainer.name}: ${topGainer.first}kg → ${topGainer.last}kg (+${topGainer.pct}%) over ${topGainer.sessions} sessions.` : 'No exercise trending up yet.'}
+             </div>
            </div>
          </div>
        </div>
@@ -146,6 +160,37 @@ export default function Fitness({ data }) {
            <div className="wRow"><span>ACWR:</span> <span style={{color: fstats.acwr > 1.3 ? 'var(--bad)' : 'var(--good)'}}>{fstats.acwr?.toFixed(2)}</span></div>
            <div className="wRow"><span>Acute Load:</span> <span>{fstats.acute}</span></div>
            <div className="wRow"><span>Chronic Load:</span> <span>{fstats.chronic}</span></div>
+         </div>
+       </div>
+
+       <div className="card" style={{ marginBottom: 20 }}>
+         <div className="h2">REP-RANGE DISTRIBUTION</div>
+         <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+           <div style={{ height: 200, flex: 1 }}>
+             <ResponsiveContainer width="100%" height="100%">
+               <PieChart>
+                 <Pie
+                   data={[
+                     { name: 'Strength (1-5)', value: fstats.rep?.strength || 0 },
+                     { name: 'Hypertrophy (6-12)', value: fstats.rep?.hyper || 0 },
+                     { name: 'Endurance (13+)', value: fstats.rep?.endu || 0 },
+                   ]}
+                   dataKey="value" innerRadius={50} outerRadius={80} paddingAngle={2}
+                 >
+                   <Cell fill="var(--bad)" />
+                   <Cell fill="var(--accent)" />
+                   <Cell fill="var(--info)" />
+                 </Pie>
+                 <Tooltip contentStyle={{ background: 'var(--card)', border: '1px solid var(--border2)', borderRadius: 10 }} />
+               </PieChart>
+             </ResponsiveContainer>
+           </div>
+           <div style={{ flex: 1, fontSize: 12, color: 'var(--text2)' }}>
+             <div className="wRow"><span style={{color:'var(--bad)'}}>Strength (1-5)</span><span>{fstats.rep?.strength || 0} sets</span></div>
+             <div className="wRow"><span style={{color:'var(--accent)'}}>Hypertrophy (6-12)</span><span>{fstats.rep?.hyper || 0} sets</span></div>
+             <div className="wRow"><span style={{color:'var(--info)'}}>Endurance (13+)</span><span>{fstats.rep?.endu || 0} sets</span></div>
+             <div style={{marginTop: 10, color: 'var(--mut)'}}>{fstats.rep?.total || 0} total working sets classified by rep range.</div>
+           </div>
          </div>
        </div>
 

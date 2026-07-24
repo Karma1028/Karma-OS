@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const FILES = ['hevy','spotify','vault','stats','feed','monthly','activity','agents','memory'];
+const FILES = ['hevy','spotify','vault','stats','feed','monthly','activity','agents','memory','repo_activity'];
 
 export default function useData() {
   const [data, setData] = useState(null);
