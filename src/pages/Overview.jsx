@@ -8,8 +8,11 @@ export default function Overview({ data }) {
   const navigate = useNavigate();
   const { tasks, toggleTask } = useStore();
 
-  const hScore = computeHealth(data).score;
+  const health = computeHealth(data);
+  const hScore = health.score;
   const openTasks = tasks.filter(t => !t.done).slice(0, 4);
+  const fstats = data.stats?.fitness || {};
+  const vaultStats = data.stats?.vault || {};
 
   const mData = data.monthly || [];
   const latestMonth = mData[mData.length - 1] || {};
@@ -38,10 +41,6 @@ export default function Overview({ data }) {
     { lbl: 'MOOD', val: latestMonth.mood, prev: prevMonth.mood, fmt: (v) => (v || 0).toFixed(1) }
   ];
 
-  const insightData = [
-    { time: '1', val: 20 }, { time: '2', val: 40 }, { time: '3', val: 35 }, { time: '4', val: 50 }, { time: '5', val: 80 }
-  ];
-
   const heatStreams = data.activity?.streams || [
     { label: 'Training', arr: Array(41).fill(0).map(()=>Math.random()) },
     { label: 'Listening', arr: Array(41).fill(0).map(()=>Math.random()) },
@@ -67,9 +66,9 @@ export default function Overview({ data }) {
           <div className="h2" style={{ marginBottom: 5 }}>SYSTEM ONLINE. WELCOME BACK.</div>
           <div className="h2sub" style={{ marginBottom: 15 }}>Current system health is <span className="hl" style={{ color: healthLabel(hScore).color }}>{healthLabel(hScore).label}</span>.</div>
           <div className="rowFlex" style={{ gap: 10 }}>
-            <div className="chip">ACTIVE STREAMS: 4</div>
-            <div className="chip">SYNC STATUS: NORMAL</div>
-            <div className="chip">UPTIME: 99.9%</div>
+            <div className="chip">ACTIVE STREAMS: {health.activeStreams}/{health.totalStreams}</div>
+            <div className="chip">INGEST BACKLOG: {health.backlog}</div>
+            <div className="chip">LAST MEMORY WRITE: {health.daysSince}d ago</div>
           </div>
         </div>
       </div>
@@ -129,34 +128,15 @@ export default function Overview({ data }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           <div className="brief">
             <div className="h2" style={{ color: 'var(--accent)' }}>AI DAILY BRIEF</div>
-            <p style={{ color: 'var(--text2)', margin: '15px 0', fontSize: 14 }}>System operating optimally. Detected minor anomalies in training load. Knowledge base expansion tracking normally.</p>
+            <p style={{ color: 'var(--text2)', margin: '15px 0', fontSize: 14 }}>
+              {health.activeStreams} of {health.totalStreams} streams active. ACWR sits at {fstats.acwr?.toFixed(2) ?? 'N/A'}{fstats.acwr > 1.3 ? ' — above the 1.3 safe ceiling' : ''}.
+              Vault last captured {vaultStats.daysSince ?? '?'} days ago, {health.backlog} items still waiting in the ingest backlog.
+            </p>
             <div className="rowFlex" style={{ gap: 10 }}>
-              <div className="aiTag" style={{ background: 'var(--warnBg)', color: 'var(--warn)', border: '1px solid var(--warnBd)' }}>ACWR: 1.3 (HIGH)</div>
-              <div className="aiTag" style={{ background: 'var(--goodBg)', color: 'var(--good)', border: '1px solid var(--goodBd)' }}>VAULT SYNCED</div>
-              <div className="aiTag" style={{ background: 'var(--infoBg)', color: 'var(--info)', border: '1px solid var(--infoBd)' }}>MEMORY STABLE</div>
+              <div className="aiTag" style={{ background: fstats.acwr > 1.3 ? 'var(--badBg)' : 'var(--goodBg)', color: fstats.acwr > 1.3 ? 'var(--bad)' : 'var(--good)', border: `1px solid ${fstats.acwr > 1.3 ? 'var(--badBd)' : 'var(--goodBd)'}` }}>ACWR: {fstats.acwr?.toFixed(2) ?? 'N/A'}{fstats.acwr > 1.3 ? ' (HIGH)' : ''}</div>
+              <div className="aiTag" style={{ background: vaultStats.daysSince > 14 ? 'var(--warnBg)' : 'var(--goodBg)', color: vaultStats.daysSince > 14 ? 'var(--warn)' : 'var(--good)', border: `1px solid ${vaultStats.daysSince > 14 ? 'var(--warnBd)' : 'var(--goodBd)'}` }}>VAULT: {vaultStats.daysSince ?? '?'}d SINCE CAPTURE</div>
+              <div className="aiTag" style={{ background: 'var(--infoBg)', color: 'var(--info)', border: '1px solid var(--infoBd)' }}>BACKLOG: {health.backlog}</div>
             </div>
-          </div>
-
-          <div className="h2" style={{ marginTop: 10 }}>INSIGHT ENGINE</div>
-          <div className="g2">
-            {[1, 2, 3, 4, 5, 6].map(i => (
-              <div key={i} className="insightCard card">
-                <div className="rowFlex" style={{ justifyContent: 'space-between', marginBottom: 10 }}>
-                  <div className="chip">DOMAIN {i}</div>
-                  <div className="deltaChip good">+{(Math.random()*10).toFixed(1)}%</div>
-                </div>
-                <div className="statVal" style={{ fontSize: 20 }}>{fmtInt(Math.random()*1000)}</div>
-                <div style={{ height: 40, margin: '10px 0' }}>
-                  <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={insightData}>
-                      <Area type="monotone" dataKey="val" stroke={CHART_COLORS[i%CHART_COLORS.length]} fill={CHART_COLORS[i%CHART_COLORS.length]} fillOpacity={0.2} />
-                    </AreaChart>
-                  </ResponsiveContainer>
-                </div>
-                <div className="statSub" style={{ fontSize: 11 }}>Insight generated based on recent rolling activity window.</div>
-                <button className="chip" style={{ marginTop: 10, cursor: 'pointer', background: 'var(--card2)', color: 'var(--text)' }}>ACTION</button>
-              </div>
-            ))}
           </div>
 
           <div className="card">
@@ -164,12 +144,17 @@ export default function Overview({ data }) {
             <div className="rowFlex" style={{ justifyContent: 'space-between', marginTop: 15 }}>
               <div style={{ flex: 1, paddingRight: 15, borderRight: '1px solid var(--border)' }}>
                 <div className="statLbl" style={{ marginBottom: 10, color: 'var(--good)' }}>ACTIVE STREAMS</div>
-                <div className="chip" style={{ marginBottom: 5 }}>TRAINING (High)</div>
-                <div className="chip">LISTENING (Stable)</div>
+                {metrics.filter(m => m.prev && m.val >= m.prev).map(m => (
+                  <div key={m.lbl} className="chip" style={{ marginBottom: 5 }}>{m.lbl} ({getDelta(m.val, m.prev)})</div>
+                ))}
+                {!metrics.some(m => m.prev && m.val >= m.prev) && <div className="statSub">None this month.</div>}
               </div>
               <div style={{ flex: 1, paddingLeft: 15 }}>
                 <div className="statLbl" style={{ marginBottom: 10, color: 'var(--bad)' }}>STALLED STREAMS</div>
-                <div className="chip">EVENTS (Needs Review)</div>
+                {metrics.filter(m => m.prev && m.val < m.prev).map(m => (
+                  <div key={m.lbl} className="chip" style={{ marginBottom: 5 }}>{m.lbl} ({getDelta(m.val, m.prev)})</div>
+                ))}
+                {!metrics.some(m => m.prev && m.val < m.prev) && <div className="statSub">None this month.</div>}
               </div>
             </div>
           </div>
@@ -223,42 +208,30 @@ export default function Overview({ data }) {
           </div>
 
           <div className="card">
-            <div className="h2">ATTENTION ALLOCATION</div>
+            <div className="h2">THIS MONTH'S MIX</div>
             <div style={{ height: 250 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
-                  <Pie data={[{n:'Train', v:30}, {n:'Listen', v:40}, {n:'Learn', v:20}, {n:'Rest', v:10}]} dataKey="v" nameKey="n" innerRadius="60%" outerRadius="80%" paddingAngle={2}>
-                    <Cell fill={DOMAIN_COLORS?.training || 'var(--accent)'} />
-                    <Cell fill={DOMAIN_COLORS?.spotify || 'var(--good)'} />
-                    <Cell fill={DOMAIN_COLORS?.vault || 'var(--warn)'} />
-                    <Cell fill="var(--mut)" />
+                  <Pie data={[
+                    { n: 'Training', v: latestMonth.workouts || 0 },
+                    { n: 'Listening', v: Math.round((latestMonth.music_min || 0) / 60) },
+                    { n: 'Knowledge', v: latestMonth.knowledge || 0 },
+                    { n: 'Events', v: latestMonth.events || 0 },
+                  ]} dataKey="v" nameKey="n" innerRadius="60%" outerRadius="80%" paddingAngle={2}>
+                    <Cell fill={DOMAIN_COLORS?.fitness || 'var(--accent)'} />
+                    <Cell fill={DOMAIN_COLORS?.music || 'var(--good)'} />
+                    <Cell fill={DOMAIN_COLORS?.knowledge || 'var(--warn)'} />
+                    <Cell fill={DOMAIN_COLORS?.intel || 'var(--mut)'} />
                   </Pie>
                   <Tooltip contentStyle={ttStyle} />
                 </PieChart>
               </ResponsiveContainer>
             </div>
             <div className="rowFlex" style={{ justifyContent: 'center', gap: 15 }}>
-              {['Train', 'Listen', 'Learn', 'Rest'].map((l, i) => (
+              {['Training', 'Listening', 'Knowledge', 'Events'].map((l, i) => (
                 <div key={l} className="rowFlex" style={{ gap: 5, fontSize: 10, color: 'var(--text2)' }}>
-                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: [DOMAIN_COLORS?.training || 'var(--accent)', DOMAIN_COLORS?.spotify || 'var(--good)', DOMAIN_COLORS?.vault || 'var(--warn)', 'var(--mut)'][i] }} />
+                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: [DOMAIN_COLORS?.fitness || 'var(--accent)', DOMAIN_COLORS?.music || 'var(--good)', DOMAIN_COLORS?.knowledge || 'var(--warn)', DOMAIN_COLORS?.intel || 'var(--mut)'][i] }} />
                   {l}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="h2">PLACEMENT PLAN</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 15, marginTop: 15 }}>
-              {[1, 2, 3, 4].map(i => (
-                <div key={i}>
-                  <div className="rowFlex" style={{ justifyContent: 'space-between', marginBottom: 5, fontSize: 10, color: 'var(--text2)' }}>
-                    <span>MONTH {i}</span>
-                    <span>{i*25}%</span>
-                  </div>
-                  <div className="track">
-                    <div className="fill" style={{ width: `${i*25}%`, background: 'var(--accent)' }} />
-                  </div>
                 </div>
               ))}
             </div>

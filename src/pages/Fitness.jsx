@@ -15,10 +15,10 @@ export default function Fitness({ data }) {
   const setSplitFilter = useStore(s => s.setSplitFilter || (() => {}));
 
   const { hevy = {}, stats = {} } = data || {};
-  const { summary = {}, analytics = {}, audit = {} } = hevy;
+  const { hevy_summary: summary = {}, hevy_analytics: analytics = {}, hevy_audit: audit = {} } = hevy;
   const fstats = stats.fitness || {};
 
-  const sessions = summary.sessions || [];
+  const sessions = (summary.recent || []).map(s => ({ ...s, name: s.title, split: s.title }));
   const prs = summary.prs || [];
   const muscleGroups = analytics.muscle_groups || [];
   const weeklyVol = analytics.weekly_volume || [];
@@ -28,40 +28,32 @@ export default function Fitness({ data }) {
   
   const filteredSessions = splitFilter === 'All' ? sessions : sessions.filter(s => s.split === splitFilter);
   
-  const radarData = muscleGroups.map(m => ({ subject: m.muscle, A: m.sets, fullMark: 150 }));
-  
-  const splitCounts = {};
-  sessions.forEach(s => { splitCounts[s.split] = (splitCounts[s.split] || 0) + 1; });
-  const pieData = Object.entries(splitCounts).map(([k, v]) => ({ name: k, value: v }));
-  
-  const weeklyBarData = weeklyVol.map(w => ({ name: w.week, vol: w.volume }));
-  
-  const volByMuscle = muscleGroups.slice().sort((a,b) => b.volume - a.volume);
-  
+  const radarData = muscleGroups.map(m => ({ subject: m.name, A: m.sets, fullMark: 150 }));
+
+  const pieData = Object.entries(summary.split_counts || {}).map(([k, v]) => ({ name: k, value: v }));
+
+  const weeklyBarData = weeklyVol.map(w => ({ name: w.week, vol: w.vol }));
+
+  const volByMuscle = muscleGroups.slice().sort((a,b) => b.vol - a.vol);
+
   const rampRateData = weeklyVol.map((w, i) => {
     if(i === 0) return { name: w.week, change: 0 };
-    const prev = weeklyVol[i-1].volume;
-    const curr = w.volume;
+    const prev = weeklyVol[i-1].vol;
+    const curr = w.vol;
     return { name: w.week, change: prev ? ((curr - prev) / prev) * 100 : 0 };
   });
 
   const periodizationData = weeklyVol.map(w => {
-     let o = { name: w.week };
-     const wSess = sessions.filter(s => s.start_time?.startsWith(w.week));
-     const mgs = {};
-     wSess.forEach(s => {
-        s.exercises?.forEach(e => {
-            const m = e.muscle || 'Other';
-            mgs[m] = (mgs[m] || 0) + (e.sets?.length || 0);
-        });
-     });
-     return { ...o, ...mgs };
+     const wSess = sessions.filter(s => s.date?.startsWith(w.week?.slice(0, 7)));
+     const bySplit = {};
+     wSess.forEach(s => { bySplit[s.split] = (bySplit[s.split] || 0) + (s.vol || 0); });
+     return { name: w.week, ...bySplit };
   });
 
   const efficiencyData = sessions.map(s => ({
     name: s.name,
-    sets: s.total_sets || 0,
-    vol: s.total_volume_kg || 0,
+    sets: s.sets || 0,
+    vol: s.vol || 0,
     split: s.split
   }));
 
@@ -69,11 +61,11 @@ export default function Fitness({ data }) {
      const d = new Date();
      d.setDate(d.getDate() - (27 - i));
      const ds = d.toISOString().split('T')[0];
-     const sess = sessions.find(s => s.start_time?.startsWith(ds));
+     const sess = sessions.find(s => s.date === ds);
      return { date: ds, sess };
   });
 
-  const treeMapData = muscleGroups.map(m => ({ name: m.muscle, size: m.volume }));
+  const treeMapData = muscleGroups.map(m => ({ name: m.name, size: m.vol }));
 
   return (
     <div style={{ paddingBottom: '40px' }}>
@@ -88,7 +80,7 @@ export default function Fitness({ data }) {
          </div>
          <div className="statCard">
             <div className="statLbl">DATE RANGE</div>
-            <div className="statVal" style={{fontSize:14}}>{sessions.length ? `${short(sessions[sessions.length-1]?.start_time)} - ${short(sessions[0]?.start_time)}` : 'N/A'}</div>
+            <div className="statVal" style={{fontSize:14}}>{summary.first_date ? `${short(summary.first_date)} - ${short(summary.last_date)}` : 'N/A'}</div>
          </div>
          <div className="statCard">
             <div className="statLbl">PRs LOGGED</div>
@@ -119,19 +111,19 @@ export default function Fitness({ data }) {
          <div className="grid2">
            <div>
              <div className="h2sub" style={{color:'var(--bad)'}}>JUNK VOLUME DETECTED</div>
-             {junkVol.map(j => (
-                <div key={j.muscle} className="wRow">
-                   <span>{j.muscle}</span>
-                   <span style={{color:'var(--text2)'}}>{j.excess_sets} sets excess</span>
+             {junkVol.map((j, i) => (
+                <div key={`${j.name}-${j.date}-${i}`} className="wRow">
+                   <span>{j.name}</span>
+                   <span style={{color:'var(--text2)'}}>{j.sets} sets excess ({j.session})</span>
                 </div>
              ))}
            </div>
            <div>
              <div className="h2sub" style={{color:'var(--warn)'}}>REGRESSION WATCH</div>
              {regWatch.map(r => (
-                <div key={r.exercise_title} className="wRow">
-                   <span>{r.exercise_title}</span>
-                   <span style={{color:'var(--bad)'}}>{r.drop_pct?.toFixed(1)}% drop</span>
+                <div key={r.name} className="wRow">
+                   <span>{r.name}</span>
+                   <span style={{color:'var(--bad)'}}>{r.pct}% drop</span>
                 </div>
              ))}
            </div>
@@ -197,9 +189,9 @@ export default function Fitness({ data }) {
                <BarChart data={volByMuscle} layout="vertical" margin={{ left: 40 }}>
                  <CartesianGrid strokeDasharray="3 3" stroke="var(--border2)" horizontal={false} />
                  <XAxis type="number" tick={{fill:'var(--mut)', fontSize:10}} />
-                 <YAxis dataKey="muscle" type="category" tick={{fill:'var(--mut)', fontSize:10}} />
+                 <YAxis dataKey="name" type="category" tick={{fill:'var(--mut)', fontSize:10}} />
                  <Tooltip contentStyle={{ background: 'var(--card)', border: '1px solid var(--border2)', borderRadius: 10 }} />
-                 <Bar dataKey="volume" fill="var(--pink)" radius={[0,4,4,0]} />
+                 <Bar dataKey="vol" fill="var(--pink)" radius={[0,4,4,0]} />
                </BarChart>
              </ResponsiveContainer>
          </div>
@@ -311,10 +303,10 @@ export default function Fitness({ data }) {
              <ResponsiveContainer width="100%" height="100%">
                <LineChart data={progression.slice(0, 3)}>
                  <CartesianGrid strokeDasharray="3 3" stroke="var(--border2)" vertical={false} />
-                 <XAxis dataKey="exercise_title" tick={{fill:'var(--mut)', fontSize:10}} />
+                 <XAxis dataKey="name" tick={{fill:'var(--mut)', fontSize:10}} />
                  <YAxis tick={{fill:'var(--mut)', fontSize:10}} />
                  <Tooltip contentStyle={{ background: 'var(--card)', border: '1px solid var(--border2)', borderRadius: 10 }} />
-                 <Line type="monotone" dataKey="e1rm_avg" stroke="var(--good)" strokeWidth={2} dot={{r:3}} />
+                 <Line type="monotone" dataKey="best" stroke="var(--good)" strokeWidth={2} dot={{r:3}} />
                </LineChart>
              </ResponsiveContainer>
            </div>
@@ -326,10 +318,10 @@ export default function Fitness({ data }) {
              <ResponsiveContainer width="100%" height="100%">
                <LineChart data={regWatch}>
                  <CartesianGrid strokeDasharray="3 3" stroke="var(--border2)" vertical={false} />
-                 <XAxis dataKey="exercise_title" tick={{fill:'var(--mut)', fontSize:10}} />
+                 <XAxis dataKey="name" tick={{fill:'var(--mut)', fontSize:10}} />
                  <YAxis tick={{fill:'var(--mut)', fontSize:10}} />
                  <Tooltip contentStyle={{ background: 'var(--card)', border: '1px solid var(--border2)', borderRadius: 10 }} />
-                 <Line type="monotone" dataKey="drop_pct" stroke="var(--bad)" strokeWidth={2} dot={{r:3}} />
+                 <Line type="monotone" dataKey="pct" stroke="var(--bad)" strokeWidth={2} dot={{r:3}} />
                </LineChart>
              </ResponsiveContainer>
            </div>
@@ -343,18 +335,18 @@ export default function Fitness({ data }) {
                <thead>
                   <tr style={{borderBottom: '1px solid var(--border2)'}}>
                      <th style={{padding: '8px 0', fontSize: 12, color:'var(--mut)'}}>Exercise</th>
-                     <th style={{padding: '8px 0', fontSize: 12, color:'var(--mut)'}}>e1RM (Avg)</th>
-                     <th style={{padding: '8px 0', fontSize: 12, color:'var(--mut)'}}>Sets</th>
-                     <th style={{padding: '8px 0', fontSize: 12, color:'var(--mut)'}}>Volume</th>
+                     <th style={{padding: '8px 0', fontSize: 12, color:'var(--mut)'}}>Best</th>
+                     <th style={{padding: '8px 0', fontSize: 12, color:'var(--mut)'}}>Sessions</th>
+                     <th style={{padding: '8px 0', fontSize: 12, color:'var(--mut)'}}>Δ (change)</th>
                   </tr>
                </thead>
                <tbody>
                   {progression.map(p => (
-                     <tr key={p.exercise_title} style={{borderBottom: '1px solid var(--border2)'}}>
-                        <td style={{padding: '8px 0', fontSize: 13}}>{p.exercise_title}</td>
-                        <td style={{padding: '8px 0', fontSize: 13}}>{fmtKg(p.e1rm_avg)}</td>
-                        <td style={{padding: '8px 0', fontSize: 13}}>{p.total_sets}</td>
-                        <td style={{padding: '8px 0', fontSize: 13}}>{fmtKg(p.total_volume)}</td>
+                     <tr key={p.name} style={{borderBottom: '1px solid var(--border2)'}}>
+                        <td style={{padding: '8px 0', fontSize: 13}}>{p.name}</td>
+                        <td style={{padding: '8px 0', fontSize: 13}}>{fmtKg(p.best)}</td>
+                        <td style={{padding: '8px 0', fontSize: 13}}>{p.sessions}</td>
+                        <td style={{padding: '8px 0', fontSize: 13, color: p.delta >= 0 ? 'var(--good)' : 'var(--bad)'}}>{p.delta > 0 ? '+' : ''}{p.delta} ({p.pct}%)</td>
                      </tr>
                   ))}
                </tbody>
@@ -367,7 +359,7 @@ export default function Fitness({ data }) {
          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             {prs.map((p, i) => (
                <div key={i} className="chip" style={{backgroundColor: 'var(--infoBg)', color: 'var(--info)', border: '1px solid var(--infoBd)'}}>
-                  {p.exercise_title} - {p.weight_kg}kg x {p.reps}
+                  {p.name} - {p.weight}kg x {p.reps}
                </div>
             ))}
          </div>
@@ -378,8 +370,8 @@ export default function Fitness({ data }) {
          <div style={{color:'var(--text2)', fontSize:13}}>
             Based on recent regressions and skipped muscle groups, prioritize:
             <ul style={{marginTop: 5, paddingLeft: 20}}>
-               {regWatch.slice(0, 2).map(r => <li key={r.exercise_title}>{r.exercise_title} (Recovery Focus)</li>)}
-               {junkVol.slice(0, 1).map(j => <li key={j.muscle}>Reduce volume on {j.muscle}</li>)}
+               {regWatch.slice(0, 2).map(r => <li key={r.name}>{r.name} (Recovery Focus)</li>)}
+               {junkVol.slice(0, 1).map(j => <li key={j.name}>Reduce volume on {j.name}</li>)}
             </ul>
          </div>
        </div>
@@ -406,15 +398,15 @@ export default function Fitness({ data }) {
          </div>
          <div>
             {filteredSessions.map(s => (
-               <div key={s.id || s.name} className="sessCard" style={{ marginBottom: 10, padding: 10, border: '1px solid var(--border2)', borderRadius: 8, background: 'var(--card2)' }}>
+               <div key={s.date + s.name} className="sessCard" style={{ marginBottom: 10, padding: 10, border: '1px solid var(--border2)', borderRadius: 8, background: 'var(--card2)' }}>
                   <div style={{display:'flex', justifyContent:'space-between', marginBottom: 5}}>
                      <strong style={{color: SPLIT_COLORS[s.split] || 'var(--accent)'}}>{s.name}</strong>
-                     <span style={{fontSize: 12, color: 'var(--mut)'}}>{short(s.start_time)}</span>
+                     <span style={{fontSize: 12, color: 'var(--mut)'}}>{short(s.date)}</span>
                   </div>
                   <div className="wRow" style={{fontSize: 12, color: 'var(--text2)'}}>
-                     <span>Vol: {fmtKg(s.total_volume_kg)}</span>
-                     <span>Sets: {s.total_sets}</span>
-                     <span>Dur: {Math.round((new Date(s.end_time) - new Date(s.start_time))/60000) || 0}m</span>
+                     <span>Vol: {fmtKg(s.vol)}</span>
+                     <span>Sets: {s.sets}</span>
+                     <span>Dur: {s.mins}m</span>
                   </div>
                </div>
             ))}

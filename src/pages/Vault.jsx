@@ -25,11 +25,14 @@ export default function Vault({ data }) {
     { name: 'Wiki Pages', count: wikiCount }
   ];
   
+  // 0. Clusters — vault.clusters is an array of {name, count, fill}
+  const clusterList = Array.isArray(vault.clusters) ? vault.clusters : [];
+
   // 12. Treemap data
-  const treemapData = Object.entries(vault.clusters || {}).map(([name, size], i) => ({
-    name,
-    size,
-    fill: CHART_COLORS[i % CHART_COLORS.length]
+  const treemapData = clusterList.map((c, i) => ({
+    name: c.name,
+    size: c.count,
+    fill: c.fill || CHART_COLORS[i % CHART_COLORS.length]
   }));
   
   // 13. Notebook Age Distribution
@@ -79,7 +82,7 @@ export default function Vault({ data }) {
         </div>
         <div className="statCard">
           <div className="statLbl">CLUSTERS</div>
-          <div className="statVal">{Object.keys(vault.clusters || {}).length}</div>
+          <div className="statVal">{clusterList.length}</div>
         </div>
         <div className="statCard">
           <div className="statLbl">INGEST BACKLOG</div>
@@ -115,8 +118,8 @@ export default function Vault({ data }) {
         <div className="card">
            <div className="h2">KNOWLEDGE_CLUSTERS</div>
            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
-              {Object.entries(vault.clusters || {}).map(([c, size]) => (
-                <div 
+              {clusterList.map(({ name: c, count: size }) => (
+                <div
                   key={c}
                   className="chip"
                   style={{
