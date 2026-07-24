@@ -256,10 +256,10 @@
     ]
   ],
   "vault": {
-    "medGap": 16,
+    "medGap": 0,
     "burstiness": 0.05,
-    "lastCapture": "2026-04-27",
-    "daysSince": 85
+    "lastCapture": "2026-04-12",
+    "daysSince": 103
   },
   "corr": -0.21
 }

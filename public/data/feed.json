@@ -1,35 +1,160 @@
 {
   "items": [
-    { "date": "2026-07-20", "domain": "intel", "kind": "YOUTUBE", "title": "\"This new AI operating system is insane\" — julian-goldie-seo", "detail": "cached by daily intelligence · stripped → data/news_feed.json", "ref": "BCoIL0uAeM8" },
-    { "date": "2026-07-19", "domain": "memory", "kind": "SYSTEM", "title": "Odysseus MCP servers wired into Nexus panels", "detail": "actor: claude-code · 3 artifacts · logged to history.jsonl", "ref": "memory/history.jsonl" },
-    { "date": "2026-05-23", "domain": "fitness", "kind": "PR", "title": "Squat (Machine) 110 kg × 10 — all-time PR", "detail": "Legs session · 7,690 kg total · 64 min · 21 sets", "ref": "hevy" },
-    { "date": "2026-05-22", "domain": "fitness", "kind": "FLAG", "title": "11 sets of Lat Pulldown in one session", "detail": "Baaaack · 9,075 kg — junk volume threshold crossed", "ref": "hevy" },
-    { "date": "2026-05-21", "domain": "fitness", "kind": "SESSION", "title": "Arms: 35 sets in 62 minutes", "detail": "highest set density on record · 7,500 kg", "ref": "hevy" },
-    { "date": "2026-05-11", "domain": "intel", "kind": "RUN", "title": "Daily intelligence engine executed", "detail": "no artifacts persisted — pipeline needs an output writer", "ref": "skills/daily_intelligence_engine.py" },
-    { "date": "2026-05-04", "domain": "memory", "kind": "WRITE", "title": "First history.jsonl entry written", "detail": "\"System test: manual entry for history verification\"", "ref": "memory/history.jsonl" },
-    { "date": "2026-04-27", "domain": "knowledge", "kind": "INDEX", "title": "Knowledge graph rebuilt — 44 notebooks, 5 wiki pages", "detail": "graphify-out · 5 clusters · 97 raw items flagged", "ref": "graphify-out/GRAPH_REPORT.md" },
-    { "date": "2026-04-12", "domain": "knowledge", "kind": "IMPORT", "title": "33 notebooks batch-imported from NotebookLM", "detail": "largest single knowledge event · ML, markets, finance", "ref": "knowledge/00_index.md" },
-    { "date": "2026-04-18", "domain": "memory", "kind": "DIARY", "title": "Daily note created", "detail": "personal/daily/2026-04-18.md — only daily note so far", "ref": "obsidian-vault" },
-    { "date": "2026-01-17", "domain": "music", "kind": "SESSION", "title": "2026 listening opens with Pink Floyd — The Division Bell", "detail": "January became peak month: 472 min", "ref": "spotify" },
-    { "date": "2025-12-29", "domain": "knowledge", "kind": "NOTEBOOK", "title": "3 notebooks added: AI updates, marketing research, stock trading", "detail": "organic capture streak", "ref": "knowledge/" },
-    { "date": "2025-12-10", "domain": "knowledge", "kind": "NOTEBOOK", "title": "4 notebooks: cross-validation, data streaming, AI tools, decision frameworks", "detail": "term-3 study block", "ref": "knowledge/" },
-    { "date": "2025-10-23", "domain": "knowledge", "kind": "NOTEBOOK", "title": "First notebook: Memento — LLM Agents Without Fine-tuning", "detail": "the vault begins", "ref": "knowledge/" },
-    { "date": "2025-10-18", "domain": "fitness", "kind": "SESSION", "title": "First workout logged in Hevy", "detail": "25 sessions and 119.7 t would follow", "ref": "hevy" }
+    {
+      "date": "2026-07-20",
+      "domain": "intel",
+      "kind": "YOUTUBE",
+      "title": "\"This new AI operating system is insane\" \u2014 julian-goldie-seo",
+      "detail": "cached by daily intelligence \u00b7 stripped \u2192 data/news_feed.json",
+      "ref": "BCoIL0uAeM8"
+    },
+    {
+      "date": "2026-07-19",
+      "domain": "memory",
+      "kind": "SYSTEM",
+      "title": "Odysseus MCP servers wired into Nexus panels",
+      "detail": "actor: claude-code \u00b7 3 artifacts \u00b7 logged to history.jsonl",
+      "ref": "memory/history.jsonl"
+    },
+    {
+      "date": "2026-05-23",
+      "domain": "fitness",
+      "kind": "PR",
+      "title": "Squat (Machine) 110 kg \u00d7 10 \u2014 all-time PR",
+      "detail": "Legs session \u00b7 7,690 kg total \u00b7 64 min \u00b7 21 sets",
+      "ref": "hevy"
+    },
+    {
+      "date": "2026-05-22",
+      "domain": "fitness",
+      "kind": "FLAG",
+      "title": "11 sets of Lat Pulldown in one session",
+      "detail": "Baaaack \u00b7 9,075 kg \u2014 junk volume threshold crossed",
+      "ref": "hevy"
+    },
+    {
+      "date": "2026-05-21",
+      "domain": "fitness",
+      "kind": "SESSION",
+      "title": "Arms: 35 sets in 62 minutes",
+      "detail": "highest set density on record \u00b7 7,500 kg",
+      "ref": "hevy"
+    },
+    {
+      "date": "2026-05-11",
+      "domain": "intel",
+      "kind": "RUN",
+      "title": "Daily intelligence engine executed",
+      "detail": "no artifacts persisted \u2014 pipeline needs an output writer",
+      "ref": "skills/daily_intelligence_engine.py"
+    },
+    {
+      "date": "2026-05-04",
+      "domain": "memory",
+      "kind": "WRITE",
+      "title": "First history.jsonl entry written",
+      "detail": "\"System test: manual entry for history verification\"",
+      "ref": "memory/history.jsonl"
+    },
+    {
+      "date": "2026-04-27",
+      "domain": "knowledge",
+      "kind": "INDEX",
+      "title": "Knowledge graph rebuilt \u2014 44 notebooks, 5 wiki pages",
+      "detail": "graphify-out \u00b7 5 clusters \u00b7 97 raw items flagged",
+      "ref": "graphify-out/GRAPH_REPORT.md"
+    },
+    {
+      "date": "2026-04-12",
+      "domain": "knowledge",
+      "kind": "IMPORT",
+      "title": "33 notebooks batch-imported from NotebookLM",
+      "detail": "largest single knowledge event \u00b7 ML, markets, finance",
+      "ref": "knowledge/00_index.md"
+    },
+    {
+      "date": "2026-04-18",
+      "domain": "memory",
+      "kind": "DIARY",
+      "title": "Daily note created",
+      "detail": "personal/daily/2026-04-18.md \u2014 only daily note so far",
+      "ref": "obsidian-vault"
+    },
+    {
+      "date": "2026-01-17",
+      "domain": "music",
+      "kind": "SESSION",
+      "title": "2026 listening opens with Pink Floyd \u2014 The Division Bell",
+      "detail": "January became peak month: 472 min",
+      "ref": "spotify"
+    },
+    {
+      "date": "2025-12-29",
+      "domain": "knowledge",
+      "kind": "NOTEBOOK",
+      "title": "3 notebooks added: AI updates, marketing research, stock trading",
+      "detail": "organic capture streak",
+      "ref": "knowledge/"
+    },
+    {
+      "date": "2025-12-10",
+      "domain": "knowledge",
+      "kind": "NOTEBOOK",
+      "title": "4 notebooks: cross-validation, data streaming, AI tools, decision frameworks",
+      "detail": "term-3 study block",
+      "ref": "knowledge/"
+    },
+    {
+      "date": "2025-10-23",
+      "domain": "knowledge",
+      "kind": "NOTEBOOK",
+      "title": "First notebook: Memento \u2014 LLM Agents Without Fine-tuning",
+      "detail": "the vault begins",
+      "ref": "knowledge/"
+    },
+    {
+      "date": "2025-10-18",
+      "domain": "fitness",
+      "kind": "SESSION",
+      "title": "First workout logged in Hevy",
+      "detail": "25 sessions and 119.7 t would follow",
+      "ref": "hevy"
+    }
   ],
   "news_feed": {
     "generated": "2026-07-21T09:00:00+05:30",
     "items": [
-      { "date": "2026-07-20 23:00 IST", "kind": "YOUTUBE", "title": "This new AI operating system is insane", "source": "julian-goldie-seo", "ref": "BCoIL0uAeM8", "status": "stripped · saved" },
-      { "date": "2026-05-11", "kind": "INTEL RUN", "title": "Daily intelligence engine executed", "source": "skills/daily_intelligence_engine.py", "ref": "knowledge/daily-intelligence/2026-05-11", "status": "run recorded · no artifacts persisted" },
-      { "date": "2026-04-27", "kind": "AUDIT", "title": "Crompton AI audit filed", "source": "infoleap", "ref": "infoleap/crompton-ai-audit.md", "status": "filed · pending vault ingest" }
+      {
+        "date": "2026-07-20 23:00 IST",
+        "kind": "YOUTUBE",
+        "title": "This new AI operating system is insane",
+        "source": "julian-goldie-seo",
+        "ref": "BCoIL0uAeM8",
+        "status": "stripped \u00b7 saved"
+      },
+      {
+        "date": "2026-05-11",
+        "kind": "INTEL RUN",
+        "title": "Daily intelligence engine executed",
+        "source": "skills/daily_intelligence_engine.py",
+        "ref": "knowledge/daily-intelligence/2026-05-11",
+        "status": "run recorded \u00b7 no artifacts persisted"
+      },
+      {
+        "date": "2026-04-27",
+        "kind": "AUDIT",
+        "title": "Crompton AI audit filed",
+        "source": "infoleap",
+        "ref": "infoleap/crompton-ai-audit.md",
+        "status": "filed \u00b7 pending vault ingest"
+      }
     ],
     "ingest_backlog": {
-      "media": 82,
-      "papers": 10,
+      "articles": 13,
       "brain_dumps": 2,
-      "articles": 1,
-      "google-takeout": 1,
-      "test_articles": 1
+      "media": 82,
+      "papers": 85,
+      "workouts": 2
     }
   }
 }

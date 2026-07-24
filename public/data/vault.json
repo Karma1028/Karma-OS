@@ -1,33 +1,326 @@
 {
-  "notebooks": 44,
+  "notebooks": 45,
   "wiki": 5,
-  "indexed": "2026-04-27",
+  "indexed": "2026-07-24",
   "clusters": [
-    { "name": "AI/ML", "count": 17, "fill": "#5b63f0" },
-    { "name": "Business/Market", "count": 10, "fill": "#38bdf8" },
-    { "name": "Other", "count": 12, "fill": "#9aa1b5" },
-    { "name": "Finance", "count": 3, "fill": "#34d399" },
-    { "name": "Stats/Math", "count": 2, "fill": "#e879b9" }
+    {
+      "name": "AI/ML",
+      "count": 17,
+      "fill": "#5b63f0"
+    },
+    {
+      "name": "Other",
+      "count": 13,
+      "fill": "#9aa1b5"
+    },
+    {
+      "name": "Business/Market",
+      "count": 10,
+      "fill": "#38bdf8"
+    },
+    {
+      "name": "Finance",
+      "count": 3,
+      "fill": "#34d399"
+    },
+    {
+      "name": "Stats/Math",
+      "count": 2,
+      "fill": "#e879b9"
+    }
   ],
   "wikiPages": [
-    { "kind": "concept", "name": "Agentic AI" },
-    { "kind": "concept", "name": "Hypertrophy Training" },
-    { "kind": "concept", "name": "KARMA-OS Architecture" },
-    { "kind": "concept", "name": "Privacy Tiers" },
-    { "kind": "entity", "name": "NanoBot" }
+    {
+      "kind": "concept",
+      "name": "Agentic AI"
+    },
+    {
+      "kind": "concept",
+      "name": "Hypertrophy Training"
+    },
+    {
+      "kind": "concept",
+      "name": "KARMA-OS Architecture"
+    },
+    {
+      "kind": "concept",
+      "name": "Privacy Tiers"
+    },
+    {
+      "kind": "entity",
+      "name": "NanoBot"
+    }
   ],
   "notebookSample": [
-    { "name": "LLM Fine-Tuning: Quantization, LoRA & Practical Implementation", "cluster": "AI/ML", "files": 6, "date": "2026-04-12" },
-    { "name": "Indian Two-Wheeler Market: 2025 Strategic Analysis", "cluster": "Business/Market", "files": 4, "date": "2026-04-12" },
-    { "name": "NLP - Term 3", "cluster": "AI/ML", "files": 9, "date": "2026-04-12" },
-    { "name": "Foundations & Applications of Modern Machine Learning", "cluster": "AI/ML", "files": 5, "date": "2026-04-12" },
-    { "name": "The 2026 AI Realignment: Alphabet Overtakes Apple", "cluster": "AI/ML", "files": 3, "date": "2026-04-12" },
-    { "name": "Mastering Quantitative Finance: Foundations, Careers", "cluster": "Finance", "files": 7, "date": "2026-04-12" },
-    { "name": "Tuhin Bhattacharya Equity Dividend Report", "cluster": "Finance", "files": 2, "date": "2026-04-12" },
-    { "name": "Modern Football Analytics: Technology, Tactics", "cluster": "Other", "files": 4, "date": "2026-04-12" },
-    { "name": "Memento: LLM Agents Without Fine-tuning", "cluster": "AI/ML", "files": 3, "date": "2025-10-23" },
-    { "name": "Confidence Intervals: Theory, Construction & Application", "cluster": "Stats/Math", "files": 3, "date": "2025-12-10" },
-    { "name": "3M in 2024: Tiding Over Colossal Challenges", "cluster": "Business/Market", "files": 5, "date": "2026-04-12" },
-    { "name": "Pop Mart's Mystery Box Mania: Consumer Manipulation", "cluster": "Business/Market", "files": 4, "date": "2026-04-12" }
+    {
+      "name": "3M in 2024  Tiding Over Colossal Challenges",
+      "cluster": "Business/Market",
+      "files": 2,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Advanced Machine Learning - term 3",
+      "cluster": "AI/ML",
+      "files": 4,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "AI Coding Benchmarks and n8n Workflow Automation S",
+      "cluster": "AI/ML",
+      "files": 2,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "AI Infrastructure, Embedding Benchmarks, and Devel",
+      "cluster": "AI/ML",
+      "files": 2,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "AI Tools and Efficiency Hacks for Business and Lif",
+      "cluster": "AI/ML",
+      "files": 2,
+      "date": "2025-12-10"
+    },
+    {
+      "name": "Confidence Intervals  Theory, Construction, and Ap",
+      "cluster": "Stats/Math",
+      "files": 2,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Consumer Psychographic Segmentation and Behavioral",
+      "cluster": "Business/Market",
+      "files": 2,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Cross-Validation  Model Diagnosis and Generalizati",
+      "cluster": "AI/ML",
+      "files": 2,
+      "date": "2025-12-10"
+    },
+    {
+      "name": "daily-intelligence",
+      "cluster": "Other",
+      "files": 0,
+      "date": ""
+    },
+    {
+      "name": "Dynamics of the Indian Energy Drink Market",
+      "cluster": "Business/Market",
+      "files": 4,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Evolution of Machine Learning  From Linear Models ",
+      "cluster": "AI/ML",
+      "files": 5,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Evolving Dynamics and Innovations in the Beverage ",
+      "cluster": "AI/ML",
+      "files": 2,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Foundations and Applications of Modern Machine Lea",
+      "cluster": "Other",
+      "files": 3,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Foundations and Applications of Real-Time Data Str",
+      "cluster": "Other",
+      "files": 2,
+      "date": "2025-12-10"
+    },
+    {
+      "name": "Gariwerd Stewardship  Resilience, Culture, and Sus",
+      "cluster": "Other",
+      "files": 2,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "GIM Data Storytelling Mid-Term Examination  Retail",
+      "cluster": "Other",
+      "files": 3,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Hybrid AI Model for Stock Trading and Returns",
+      "cluster": "AI/ML",
+      "files": 2,
+      "date": "2025-12-29"
+    },
+    {
+      "name": "Indian Two-Wheeler Market  2025 Strategic Analysis",
+      "cluster": "Business/Market",
+      "files": 20,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "IS-LM Model and Keynesian Macroeconomics",
+      "cluster": "AI/ML",
+      "files": 2,
+      "date": "2025-11-21"
+    },
+    {
+      "name": "LLM Fine-Tuning  Quantization, LoRA, and Practical",
+      "cluster": "AI/ML",
+      "files": 5,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "LLM Pruning, Distillation, and Structural Optimiza",
+      "cluster": "AI/ML",
+      "files": 6,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Logic and Frameworks for Critical Decision-Making",
+      "cluster": "Stats/Math",
+      "files": 2,
+      "date": "2025-12-10"
+    },
+    {
+      "name": "Managing Integrity and Operational Excellence",
+      "cluster": "Other",
+      "files": 2,
+      "date": "2025-12-08"
+    },
+    {
+      "name": "Marketing all in one",
+      "cluster": "Business/Market",
+      "files": 2,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Marketing Research  Concepts and Methods",
+      "cluster": "Business/Market",
+      "files": 2,
+      "date": "2025-12-29"
+    },
+    {
+      "name": "Mastering Quantitative Finance  Foundations, Caree",
+      "cluster": "Finance",
+      "files": 4,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Mathematically Proving the AI Bubble",
+      "cluster": "AI/ML",
+      "files": 2,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Memento  LLM Agents Without Fine-tuning",
+      "cluster": "AI/ML",
+      "files": 2,
+      "date": "2025-10-23"
+    },
+    {
+      "name": "Modern Football Analytics  Technology, Tactics, an",
+      "cluster": "Other",
+      "files": 6,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "MRAA",
+      "cluster": "Other",
+      "files": 7,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "NLP - Term 3",
+      "cluster": "AI/ML",
+      "files": 11,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Operations Management  Aggregate Planning Strategi",
+      "cluster": "Business/Market",
+      "files": 2,
+      "date": "2025-11-22"
+    },
+    {
+      "name": "Operations Research and Optimization Methods",
+      "cluster": "Business/Market",
+      "files": 2,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Organizational Behaviour - Term 3",
+      "cluster": "Other",
+      "files": 5,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Pop Mart's Mystery Box Mania  Consumer Manipulatio",
+      "cluster": "Business/Market",
+      "files": 4,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Power BI Mastery  Modeling, Optimization, and Ente",
+      "cluster": "AI/ML",
+      "files": 3,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Principles and Architectures of Modern Machine Lea",
+      "cluster": "Other",
+      "files": 4,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Strategic Management - term 3",
+      "cluster": "Business/Market",
+      "files": 8,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "The 2026 AI Realignment  Alphabet Overtakes Apple ",
+      "cluster": "AI/ML",
+      "files": 10,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "The Core Competence of the Corporation",
+      "cluster": "Other",
+      "files": 4,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Time Value of Money Problems and Solutions",
+      "cluster": "Finance",
+      "files": 2,
+      "date": "2026-01-14"
+    },
+    {
+      "name": "Top 10 Essential AI Updates of the Week",
+      "cluster": "AI/ML",
+      "files": 2,
+      "date": "2025-12-29"
+    },
+    {
+      "name": "TranscriptLM - YouTube to Research & PPT Generator",
+      "cluster": "Other",
+      "files": 3,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "Tuhin Bhattacharya Equity Dividend Report",
+      "cluster": "Finance",
+      "files": 2,
+      "date": "2026-04-12"
+    },
+    {
+      "name": "untitled",
+      "cluster": "Other",
+      "files": 2,
+      "date": "2026-04-12"
+    }
   ]
 }

@@ -93,7 +93,7 @@ export default function Vault({ data }) {
       {/* 2. AI Read Brief */}
       <div className="card" style={{ background: 'var(--briefBg)', borderColor: 'var(--briefBd)' }}>
         <div className="brief">
-          [SYS.KNOWLEDGE] Knowledge health degraded. {vaultStats.daysSince} days since last notebook capture. Backlog static since Apr 27.
+          [SYS.KNOWLEDGE] {vaultStats.daysSince > 30 ? 'Knowledge health degraded.' : 'Knowledge health nominal.'} {vaultStats.daysSince} days since last notebook capture ({vaultStats.lastCapture}). {totalBacklog} items waiting in the ingest backlog.
         </div>
       </div>
       
