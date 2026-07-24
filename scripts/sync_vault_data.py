@@ -57,6 +57,41 @@ def extract_date(snippet: str) -> str:
     return m.group(1) if m else ""
 
 
+def update_activity_knowledge(notebook_sample: list[dict]):
+    """Refreshes only the 'Knowledge' stream in activity.json (same
+    honest-gap approach as sync_dashboard_data.py's Training refresh)."""
+    activity_path = DASHBOARD_DATA / "activity.json"
+    if not activity_path.exists():
+        return
+    activity = json.loads(activity_path.read_text(encoding="utf-8"))
+    start = datetime.fromisoformat(activity["start"])
+    dated = [n for n in notebook_sample if n["date"]]
+    if not dated:
+        return
+    last_date = max(datetime.fromisoformat(n["date"]) for n in dated)
+    total_weeks = max(activity["weeks"], (last_date.date() - start.date()).days // 7 + 1)
+
+    knowledge = [0] * total_weeks
+    for n in dated:
+        idx = (datetime.fromisoformat(n["date"]).date() - start.date()).days // 7
+        if 0 <= idx < total_weeks:
+            knowledge[idx] += 1
+
+    for stream in activity["streams"]:
+        cur_len = len(stream["dates"])
+        if cur_len < total_weeks:
+            stream["dates"] = stream["dates"] + [0] * (total_weeks - cur_len)
+        if stream["name"] == "Knowledge":
+            stream["dates"] = knowledge
+
+    while len(activity["labels"]) < total_weeks:
+        activity["labels"].append("")
+    activity["weeks"] = total_weeks
+
+    activity_path.write_text(json.dumps(activity, indent=2), encoding="utf-8")
+    print(f"[INFO] updated {activity_path} (Knowledge stream, {total_weeks} weeks)")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--project-root", default=str(REPO_ROOT.parent))
@@ -136,6 +171,8 @@ def main():
         }
         stats_path.write_text(json.dumps(stats, indent=2), encoding="utf-8")
         print(f"[INFO] updated {stats_path} (vault: last capture {last_capture}, {days_since}d ago)")
+
+    update_activity_knowledge(notebook_sample)
 
 
 if __name__ == "__main__":

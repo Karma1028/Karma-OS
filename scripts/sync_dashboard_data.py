@@ -102,6 +102,48 @@ def build_fitness_stats(workouts: list[dict]) -> dict:
     }
 
 
+def week_index(date_str: str, start: datetime) -> int:
+    d = datetime.fromisoformat(date_str)
+    return (d.date() - start.date()).days // 7
+
+
+def update_activity_training(workouts: list[dict]):
+    """
+    Refreshes only the 'Training' stream in activity.json with real weekly
+    workout counts. Other streams (Knowledge/Intel/Memory) aren't backed by
+    a live source yet, so they're zero-padded for new weeks rather than
+    faked - honest gap over fabricated numbers.
+    """
+    activity_path = DASHBOARD_DATA / "activity.json"
+    activity = json.loads(activity_path.read_text(encoding="utf-8"))
+    start = datetime.fromisoformat(activity["start"])
+    dated = [w for w in workouts if w["date"]]
+    if not dated:
+        return
+    last_date = max(datetime.fromisoformat(w["date"]) for w in dated)
+    total_weeks = max(activity["weeks"], week_index(last_date.isoformat(), start) + 1)
+
+    training = [0] * total_weeks
+    for w in dated:
+        idx = week_index(w["date"], start)
+        if 0 <= idx < total_weeks:
+            training[idx] += 1
+
+    for stream in activity["streams"]:
+        cur_len = len(stream["dates"])
+        if cur_len < total_weeks:
+            stream["dates"] = stream["dates"] + [0] * (total_weeks - cur_len)
+        if stream["name"] == "Training":
+            stream["dates"] = training
+
+    while len(activity["labels"]) < total_weeks:
+        activity["labels"].append("")
+    activity["weeks"] = total_weeks
+
+    activity_path.write_text(json.dumps(activity, indent=2), encoding="utf-8")
+    print(f"[INFO] updated {activity_path} (Training stream, {total_weeks} weeks)")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--force", action="store_true", help="re-fetch from Hevy API instead of cache")
@@ -131,6 +173,8 @@ def main():
     stats["fitness"] = fitness_stats
     stats_path.write_text(json.dumps(stats, indent=2), encoding="utf-8")
     print(f"[INFO] updated {stats_path} (fitness section)")
+
+    update_activity_training(workouts)
 
 
 if __name__ == "__main__":
